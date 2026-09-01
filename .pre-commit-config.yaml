@@ -19,3 +19,4 @@ repos:
   hooks:
   - id: markdownlint
     exclude: '.ai-rules/aidlc-rule-details/'
+    args: [--config=.markdownlint.yaml, --fix]
