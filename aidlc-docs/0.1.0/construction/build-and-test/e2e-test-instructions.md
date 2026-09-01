@@ -28,6 +28,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Verify new user can complete initial setup
 
 **Steps**:
+
 1. Launch application for first time
 2. Verify First Run Dialog appears
 3. Click "Get Started"
@@ -37,6 +38,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 7. Verify main application loads
 
 **Pass Criteria**:
+
 - [ ] First Run Dialog displays correctly
 - [ ] Theme selection works
 - [ ] Main layout loads after completion
@@ -49,13 +51,14 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Simulate a typical day of time tracking
 
 **Steps**:
+
 1. **Morning**: Start timer for "Email Review"
    - Enter task name
    - Select category "Overhead > Communication"
    - Click Start
    - Wait 2 minutes
    - Click Stop
-   
+
 2. **Add manual task**: "Team Meeting"
    - Click "Add Task"
    - Name: "Team Meeting"
@@ -79,6 +82,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
    - Copy to clipboard
 
 **Pass Criteria**:
+
 - [ ] Timer tracks time correctly
 - [ ] Tasks appear in list
 - [ ] ActiTime view shows merged entries
@@ -91,6 +95,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Set up category hierarchy matching ActiTime
 
 **Steps**:
+
 1. Navigate to Categories view
 2. Add root category: "Project A"
 3. Add subcategory: "Project A > Development"
@@ -100,6 +105,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 7. Verify hidden category not in task form picker
 
 **Pass Criteria**:
+
 - [ ] Categories created with correct hierarchy
 - [ ] Path separator is " > "
 - [ ] Hidden categories excluded from picker
@@ -112,6 +118,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Create and use task templates
 
 **Steps**:
+
 1. Navigate to Templates view
 2. Create template:
    - Name: "Code Review"
@@ -126,6 +133,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 8. Save task
 
 **Pass Criteria**:
+
 - [ ] Template created successfully
 - [ ] Template populates form fields
 - [ ] Can override template values
@@ -138,6 +146,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Review weekly time summary
 
 **Steps**:
+
 1. Add tasks for multiple days (use date selector)
 2. Navigate to Week View
 3. Verify daily totals displayed
@@ -145,6 +154,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 5. Verify navigation to that day's Time Entry view
 
 **Pass Criteria**:
+
 - [ ] Week view shows all 7 days
 - [ ] Daily totals calculated correctly
 - [ ] Week total is sum of daily totals
@@ -157,6 +167,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Verify data can be backed up and restored
 
 **Steps**:
+
 1. Create test data:
    - 3 categories
    - 2 templates
@@ -174,6 +185,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 12. Verify data restored
 
 **Pass Criteria**:
+
 - [ ] Backup file created
 - [ ] Categories restored
 - [ ] Templates restored
@@ -186,6 +198,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 **Objective**: Verify timer save prompt on close
 
 **Steps**:
+
 1. Start a timer
 2. Wait 30+ seconds
 3. Attempt to close application (Cmd+Q)
@@ -195,6 +208,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 7. Verify task was saved
 
 **Pass Criteria**:
+
 - [ ] Dialog appears when timer active
 - [ ] Shows timer info (name, elapsed time)
 - [ ] "Save & Close" creates task
@@ -205,7 +219,7 @@ open src-tauri/target/release/bundle/macos/TimeFlow.app
 
 ## Test Execution Checklist
 
-```
+```text
 Date: ___________
 Tester: ___________
 

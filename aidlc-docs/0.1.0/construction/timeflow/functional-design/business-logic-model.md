@@ -163,22 +163,22 @@ Output: MergedEntry[]
 
 ## Proportional Distribution Algorithm
 
-```
+```text
 // Pseudocode - will be implemented in Rust
 
 fn proportional_distribute(mergeable_time, direct_tasks):
     total_direct_time = sum of task.duration for all direct_tasks
-    
+
     if total_direct_time == 0:
         // Fall back to even distribution
         return even_distribute(mergeable_time, direct_tasks)
-    
+
     allocations = []
     allocated = 0
-    
+
     // Sort by duration descending (longest first for remainder)
     sorted_tasks = sort direct_tasks by duration descending
-    
+
     for i, task in sorted_tasks:
         if i == last task:
             // Last task gets remainder
@@ -186,10 +186,10 @@ fn proportional_distribute(mergeable_time, direct_tasks):
         else:
             ratio = task.duration / total_direct_time
             allocation = floor(mergeable_time * ratio)
-        
+
         allocations.push((task.id, allocation))
         allocated += allocation
-    
+
     return allocations
 ```
 
@@ -197,21 +197,21 @@ fn proportional_distribute(mergeable_time, direct_tasks):
 
 ## Even Distribution Algorithm
 
-```
+```text
 // Pseudocode - will be implemented in Rust
 
 fn even_distribute(mergeable_time, direct_tasks):
     count = length of direct_tasks
     base_allocation = mergeable_time / count (integer division)
     remainder = mergeable_time % count
-    
+
     allocations = []
     for i, task in direct_tasks:
         allocation = base_allocation
         if i < remainder:
             allocation += 1  // Distribute remainder round-robin
         allocations.push((task.id, allocation))
-    
+
     return allocations
 ```
 
@@ -225,10 +225,10 @@ fn even_distribute(mergeable_time, direct_tasks):
 def add_category(tree, path):
     parts = path.split(" > ")
     current = tree
-    
+
     for i, part in enumerate(parts):
         partial_path = " > ".join(parts[:i+1])
-        
+
         # Find or create child
         child = find_child(current, part)
         if child is None:
@@ -239,9 +239,9 @@ def add_category(tree, path):
                 children=[]
             )
             current.children.append(child)
-        
+
         current = child
-    
+
     return current
 ```
 
@@ -266,7 +266,7 @@ def hide_category(tree, path):
 ```python
 def generate_full_view(date):
     tasks = load_tasks(date)
-    
+
     return FullView(
         date=date,
         tasks=tasks,
@@ -283,13 +283,13 @@ def generate_actitime_view(date):
     tasks = load_tasks(date)
     direct = [t for t in tasks if t.type == Direct]
     mergeable = [t for t in tasks if t.type == Mergeable]
-    
+
     if not direct and mergeable:
         raise Error("At least one direct task required")
-    
+
     # Calculate merged entries
     merged = calculate_distribution(mergeable, direct)
-    
+
     # Aggregate by category
     by_category = {}
     for entry in merged:
@@ -298,7 +298,7 @@ def generate_actitime_view(date):
             by_category[key].duration += entry.merged_duration
         else:
             by_category[key] = entry
-    
+
     return ActiTimeView(
         date=date,
         entries=list(by_category.values()),
@@ -315,14 +315,14 @@ def validate_daily_time(date, settings):
     tasks = load_tasks(date)
     total_minutes = sum(t.duration for t in tasks)
     total_hours = total_minutes / 60
-    
+
     warnings = []
     errors = []
-    
+
     if total_hours > 24:
         errors.append("Total time exceeds 24 hours - please check entries")
     elif total_hours > settings.work_day_hours:
         warnings.append(f"Total time ({total_hours:.1f}h) exceeds expected work day ({settings.work_day_hours}h)")
-    
+
     return ValidationResult(warnings=warnings, errors=errors)
 ```
