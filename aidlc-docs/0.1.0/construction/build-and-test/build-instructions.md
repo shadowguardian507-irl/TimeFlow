@@ -50,6 +50,7 @@ npm run tauri dev
 ```
 
 This will:
+
 1. Start the Vite dev server for the frontend
 2. Compile the Rust backend
 3. Launch the application window
@@ -65,6 +66,7 @@ npm run tauri build
 ```
 
 **Build Artifacts Location:**
+
 - macOS App Bundle: `src-tauri/target/release/bundle/macos/TimeFlow.app`
 - DMG Installer: `src-tauri/target/release/bundle/dmg/TimeFlow_*.dmg`
 
@@ -72,7 +74,7 @@ npm run tauri build
 
 ### Expected Output (Development)
 
-```
+```text
    Compiling timeflow v0.1.0
     Finished dev [unoptimized + debuginfo] target(s)
         Info Watching for changes...
@@ -80,7 +82,7 @@ npm run tauri build
 
 ### Expected Output (Production)
 
-```
+```text
    Compiling timeflow v0.1.0
     Finished release [optimized] target(s)
     Bundling TimeFlow.app
@@ -95,6 +97,7 @@ npm run tauri build
 **Cause**: Xcode Command Line Tools not installed or outdated
 
 **Solution**:
+
 ```bash
 xcode-select --install
 # Or reset if already installed
@@ -106,6 +109,7 @@ sudo xcode-select --reset
 **Cause**: Missing or incompatible Rust version
 
 **Solution**:
+
 ```bash
 # Update Rust to latest stable
 rustup update stable
@@ -117,6 +121,7 @@ rustup default stable
 **Cause**: Corrupted or missing node_modules
 
 **Solution**:
+
 ```bash
 # Remove and reinstall
 rm -rf node_modules
@@ -128,6 +133,7 @@ pnpm install
 **Cause**: Tauri CLI not installed or not in PATH
 
 **Solution**:
+
 ```bash
 cargo install tauri-cli
 # Ensure ~/.cargo/bin is in PATH
@@ -139,6 +145,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 **Cause**: Code signing issues on macOS
 
 **Solution**:
+
 ```bash
 # For development, disable code signing
 export APPLE_SIGNING_IDENTITY="-"

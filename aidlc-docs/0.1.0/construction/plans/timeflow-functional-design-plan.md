@@ -111,7 +111,9 @@ Once questions are answered, the following steps will be executed:
 ---
 
 ## Mandatory Artifacts
+
 The following artifacts will be generated:
+
 - `aidlc-docs/construction/timeflow/functional-design/business-logic-model.md`
 - `aidlc-docs/construction/timeflow/functional-design/business-rules.md`
 - `aidlc-docs/construction/timeflow/functional-design/domain-entities.md`

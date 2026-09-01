@@ -2,7 +2,8 @@
 
 ## Overview
 
-TimeFlow is organized into domain-separated components with a backend-centric architecture. The Rust backend holds all application state, and the frontend communicates via Tauri commands.
+TimeFlow is organized into domain-separated components with a backend-centric architecture. The Rust backend holds all
+application state, and the frontend communicates via Tauri commands.
 
 ---
 

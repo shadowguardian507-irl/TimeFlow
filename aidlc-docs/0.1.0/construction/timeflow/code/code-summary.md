@@ -15,110 +15,110 @@ This document summarizes the code generated for the TimeFlow time tracking appli
 
 ### Models (`src-tauri/src/models/`)
 
-| File | Purpose |
-|------|---------|
-| `task.rs` | Task entity with TaskType, DistributionStrategy |
-| `category.rs` | Category tree structure |
-| `template.rs` | Task template entity |
-| `timer.rs` | Timer state for active tracking |
-| `settings.rs` | User preferences and theme |
+| File          | Purpose                                         |
+| ------------- | ----------------------------------------------- |
+| `task.rs`     | Task entity with TaskType, DistributionStrategy |
+| `category.rs` | Category tree structure                         |
+| `template.rs` | Task template entity                            |
+| `timer.rs`    | Timer state for active tracking                 |
+| `settings.rs` | User preferences and theme                      |
 
 ### Services (`src-tauri/src/services/`)
 
-| File | Purpose |
-|------|---------|
-| `storage.rs` | YAML file persistence with atomic writes |
-| `task_manager.rs` | Task CRUD operations |
-| `category_manager.rs` | Category tree management |
-| `template_manager.rs` | Template CRUD operations |
-| `timer_service.rs` | Timer state management |
-| `time_merge.rs` | Distribution algorithms |
-| `view_generator.rs` | Full, ActiTime, and week views |
-| `export_manager.rs` | Backup and CSV export |
-| `settings_manager.rs` | Settings persistence |
+| File                  | Purpose                                  |
+| --------------------- | ---------------------------------------- |
+| `storage.rs`          | YAML file persistence with atomic writes |
+| `task_manager.rs`     | Task CRUD operations                     |
+| `category_manager.rs` | Category tree management                 |
+| `template_manager.rs` | Template CRUD operations                 |
+| `timer_service.rs`    | Timer state management                   |
+| `time_merge.rs`       | Distribution algorithms                  |
+| `view_generator.rs`   | Full, ActiTime, and week views           |
+| `export_manager.rs`   | Backup and CSV export                    |
+| `settings_manager.rs` | Settings persistence                     |
 
 ### Commands (`src-tauri/src/commands/`)
 
-| File | Purpose |
-|------|---------|
-| `tasks.rs` | Task-related Tauri commands |
-| `categories.rs` | Category-related commands |
-| `templates.rs` | Template-related commands |
-| `views.rs` | View generation commands |
-| `settings.rs` | Settings commands |
-| `export.rs` | Export/import commands |
+| File            | Purpose                     |
+| --------------- | --------------------------- |
+| `tasks.rs`      | Task-related Tauri commands |
+| `categories.rs` | Category-related commands   |
+| `templates.rs`  | Template-related commands   |
+| `views.rs`      | View generation commands    |
+| `settings.rs`   | Settings commands           |
+| `export.rs`     | Export/import commands      |
 
 ## Frontend Components
 
 ### Core Components (`src/lib/components/`)
 
-| Component | Purpose |
-|-----------|---------|
-| `Layout.svelte` | Main app layout with sidebar |
-| `Sidebar.svelte` | Navigation menu |
-| `Header.svelte` | Date selector and view toggle |
+| Component            | Purpose                           |
+| -------------------- | --------------------------------- |
+| `Layout.svelte`      | Main app layout with sidebar      |
+| `Sidebar.svelte`     | Navigation menu                   |
+| `Header.svelte`      | Date selector and view toggle     |
 | `TimerWidget.svelte` | Active timer display and controls |
 
 ### Task Components
 
-| Component | Purpose |
-|-----------|---------|
-| `TaskList.svelte` | List of tasks for selected date |
-| `TaskItem.svelte` | Individual task row |
-| `TaskEntryForm.svelte` | Create/edit task form |
-| `DailySummary.svelte` | Daily time statistics |
+| Component              | Purpose                         |
+| ---------------------- | ------------------------------- |
+| `TaskList.svelte`      | List of tasks for selected date |
+| `TaskItem.svelte`      | Individual task row             |
+| `TaskEntryForm.svelte` | Create/edit task form           |
+| `DailySummary.svelte`  | Daily time statistics           |
 
 ### Category Components
 
-| Component | Purpose |
-|-----------|---------|
+| Component               | Purpose                        |
+| ----------------------- | ------------------------------ |
 | `CategoryPicker.svelte` | Hierarchical category selector |
-| `CategoryTree.svelte` | Category management tree |
-| `CategoryForm.svelte` | Add category form |
+| `CategoryTree.svelte`   | Category management tree       |
+| `CategoryForm.svelte`   | Add category form              |
 
 ### Template Components
 
-| Component | Purpose |
-|-----------|---------|
-| `TemplateList.svelte` | List of templates |
+| Component             | Purpose                   |
+| --------------------- | ------------------------- |
+| `TemplateList.svelte` | List of templates         |
 | `TemplateForm.svelte` | Create/edit template form |
 
 ### View Components
 
-| Component | Purpose |
-|-----------|---------|
-| `TimeEntryView.svelte` | Main time entry view |
-| `ActiTimeView.svelte` | ActiTime-ready merged view |
-| `WeekView.svelte` | Weekly overview |
-| `CategoriesView.svelte` | Category management page |
-| `TemplatesView.svelte` | Template management page |
-| `SettingsView.svelte` | Settings page |
+| Component               | Purpose                    |
+| ----------------------- | -------------------------- |
+| `TimeEntryView.svelte`  | Main time entry view       |
+| `ActiTimeView.svelte`   | ActiTime-ready merged view |
+| `WeekView.svelte`       | Weekly overview            |
+| `CategoriesView.svelte` | Category management page   |
+| `TemplatesView.svelte`  | Template management page   |
+| `SettingsView.svelte`   | Settings page              |
 
 ### Dialog Components
 
-| Component | Purpose |
-|-----------|---------|
-| `FirstRunDialog.svelte` | Initial setup wizard |
+| Component                   | Purpose                    |
+| --------------------------- | -------------------------- |
+| `FirstRunDialog.svelte`     | Initial setup wizard       |
 | `CloseConfirmDialog.svelte` | Timer save prompt on close |
-| `ThemeSelector.svelte` | Theme selection UI |
-| `DateSelector.svelte` | Date navigation |
+| `ThemeSelector.svelte`      | Theme selection UI         |
+| `DateSelector.svelte`       | Date navigation            |
 
 ### State Management (`src/lib/stores/`)
 
-| Store | Purpose |
-|-------|---------|
-| `tasks.ts` | Task state and operations |
-| `categories.ts` | Category tree state |
-| `templates.ts` | Template list state |
-| `settings.ts` | User settings state |
-| `timer.ts` | Active timer state |
+| Store           | Purpose                   |
+| --------------- | ------------------------- |
+| `tasks.ts`      | Task state and operations |
+| `categories.ts` | Category tree state       |
+| `templates.ts`  | Template list state       |
+| `settings.ts`   | User settings state       |
+| `timer.ts`      | Active timer state        |
 
 ### API Layer (`src/lib/api/`)
 
-| File | Purpose |
-|------|---------|
+| File          | Purpose                                |
+| ------------- | -------------------------------------- |
 | `commands.ts` | TypeScript wrappers for Tauri commands |
-| `types.ts` | TypeScript type definitions |
+| `types.ts`    | TypeScript type definitions            |
 
 ## User Stories Implemented
 

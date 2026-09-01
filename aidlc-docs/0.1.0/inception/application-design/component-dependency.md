@@ -3,7 +3,7 @@
 ## Dependency Matrix
 
 | Component | Depends On |
-|-----------|------------|
+| ----------- | ------------ |
 | TaskManager | StorageService, CategoryManager, TimerService |
 | CategoryManager | StorageService |
 | TemplateManager | StorageService, CategoryManager |

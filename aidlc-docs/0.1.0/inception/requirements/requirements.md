@@ -2,7 +2,8 @@
 
 ## Intent Analysis Summary
 
-- **User Request**: Desktop application for time tracking that handles both direct ActiTime tasks and "mergeable" overhead tasks, with category management and export capabilities
+- **User Request**: Desktop application for time tracking that handles both direct ActiTime tasks and "mergeable"
+  overhead tasks, with category management and export capabilities
 - **Request Type**: New Project (Greenfield)
 - **Scope Estimate**: Single Application (Desktop)
 - **Complexity Estimate**: Moderate - multiple features with business logic for time merging
@@ -156,17 +157,17 @@
 
 ## Technical Decisions
 
-| Decision | Choice | Rationale |
-|----------|--------|-----------|
-| Backend Language | Rust | User requirement |
-| UI Framework | Tauri | User requirement, native feel |
-| Data Storage | YAML files | User preference, human-readable |
-| Database | None (file-based) | Simplicity, portability |
+| Decision         | Choice            | Rationale                       |
+| ---------------- | ----------------- | ------------------------------- |
+| Backend Language | Rust              | User requirement                |
+| UI Framework     | Tauri             | User requirement, native feel   |
+| Data Storage     | YAML files        | User preference, human-readable |
+| Database         | None (file-based) | Simplicity, portability         |
 
 ---
 
 ## Extension Configuration
 
-| Extension | Enabled | Reason |
-|-----------|---------|--------|
-| security-baseline | No | Personal productivity tool, local-only, no network exposure |
+| Extension         | Enabled | Reason                                                      |
+| ----------------- | ------- | ----------------------------------------------------------- |
+| security-baseline | No      | Personal productivity tool, local-only, no network exposure |

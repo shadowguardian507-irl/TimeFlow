@@ -94,7 +94,8 @@ flowchart TD
 - [ ] Functional Design - EXECUTE
   - **Rationale**: Time merging business logic requires detailed design (distribution algorithms, category hierarchy handling)
 - [ ] NFR Requirements - SKIP
-  - **Rationale**: Simple desktop app with straightforward NFRs (local storage, basic theming) - no complex NFR analysis needed
+  - **Rationale**: Simple desktop app with straightforward NFRs (local storage, basic
+    theming) - no complex NFR analysis needed
 - [ ] NFR Design - SKIP
   - **Rationale**: NFR Requirements skipped, no NFR design needed
 - [ ] Infrastructure Design - SKIP

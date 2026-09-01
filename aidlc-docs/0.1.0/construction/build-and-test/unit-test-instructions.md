@@ -3,6 +3,7 @@
 ## Overview
 
 TimeFlow uses:
+
 - **Rust tests**: For backend business logic (services, models)
 - **Vitest**: For frontend component and store testing (optional, not yet configured)
 
@@ -26,19 +27,20 @@ cargo test --manifest-path src-tauri/Cargo.toml test_proportional_distribution
 
 ### Expected Test Coverage
 
-| Module | Tests | Description |
-|--------|-------|-------------|
-| `time_merge` | 4+ | Distribution algorithms (proportional, even, manual, weighted) |
-| `task_manager` | 3+ | Task CRUD operations |
-| `category_manager` | 3+ | Category tree operations |
-| `template_manager` | 3+ | Template CRUD operations |
-| `view_generator` | 3+ | View generation (full, actitime, week) |
-| `storage` | 2+ | YAML read/write operations |
+| Module             | Tests | Description                                                    |
+| ------------------ | ----- | -------------------------------------------------------------- |
+| `time_merge`       | 4+    | Distribution algorithms (proportional, even, manual, weighted) |
+| `task_manager`     | 3+    | Task CRUD operations                                           |
+| `category_manager` | 3+    | Category tree operations                                       |
+| `template_manager` | 3+    | Template CRUD operations                                       |
+| `view_generator`   | 3+    | View generation (full, actitime, week)                         |
+| `storage`          | 2+    | YAML read/write operations                                     |
 
 ### Review Test Results
 
 **Expected Output (All Pass)**:
-```
+
+```text
 running X tests
 test services::time_merge::tests::test_proportional_distribution ... ok
 test services::time_merge::tests::test_even_distribution ... ok
@@ -133,21 +135,27 @@ If tests fail:
 ### Common Test Failures
 
 **Assertion Failed**:
-```
+
+```text
 assertion failed: `(left == right)`
   left: `10`,
  right: `15`
 ```
+
 → Check the calculation logic in the function being tested
 
 **Panic in Test**:
-```
+
+```text
 thread 'test_name' panicked at 'called `Option::unwrap()` on a `None` value'
 ```
+
 → Handle the `None` case or ensure test data is valid
 
 **Timeout**:
-```
+
+```text
 test test_name has been running for over 60 seconds
 ```
+
 → Check for infinite loops or blocking operations

@@ -2,7 +2,9 @@
 
 ## Overview
 
-TimeFlow is a macOS desktop application built with Rust and Tauri for time tracking and ActiTime integration. The architecture follows a backend-centric approach where Rust holds all application state and the frontend communicates via Tauri commands.
+TimeFlow is a macOS desktop application built with Rust and Tauri for time tracking and ActiTime integration. The
+architecture follows a backend-centric approach where Rust holds all application state and the frontend communicates
+via Tauri commands.
 
 ---
 
@@ -33,7 +35,7 @@ TimeFlow is a macOS desktop application built with Rust and Tauri for time track
 ## Components
 
 | Component | Purpose |
-|-----------|---------|
+| ----------- | --------- |
 | TaskManager | Manages time entries (create, update, delete, timer) |
 | CategoryManager | Manages hierarchical category structure |
 | TemplateManager | Manages task templates for quick entry |
@@ -47,7 +49,7 @@ TimeFlow is a macOS desktop application built with Rust and Tauri for time track
 ## Services
 
 | Service | Purpose |
-|---------|---------|
+| --------- | --------- |
 | TimeMergeService | Calculates time distribution for mergeable tasks |
 | TimerService | Backend timer state management |
 | DataIntegrityService | Ensures data consistency and atomic writes |
@@ -146,7 +148,7 @@ first_run_complete: bool
 ## Key Design Decisions
 
 | Decision | Choice | Rationale |
-|----------|--------|-----------|
+| ---------- | -------- | ----------- |
 | State Management | Backend-centric | Single source of truth, simpler sync |
 | Data Organization | Domain-separated | Clear boundaries, easier maintenance |
 | Category Storage | Nested tree YAML | Matches ActiTime hierarchy, human-readable |

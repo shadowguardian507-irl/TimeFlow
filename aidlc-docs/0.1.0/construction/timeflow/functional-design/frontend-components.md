@@ -70,11 +70,11 @@ Displays and controls the running timer.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| timerState | TimerState | null | Current timer state |
-| onStart | () => void | Start timer callback |
-| onStop | () => void | Stop timer callback |
+| Prop       | Type       | Description          |
+| ---------- | ---------- | -------------------- |
+| timerState | TimerState | Current timer state  |
+| onStart    | () => void | Start timer callback |
+| onStop     | () => void | Stop timer callback  |
 
 **State:**
 
@@ -104,11 +104,11 @@ Displays tasks for the selected date.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| date | Date | Selected date |
-| tasks | Task[] | Tasks for the date |
-| onEdit | (task) => void | Edit task callback |
+| Prop     | Type             | Description          |
+| -------- | ---------------- | -------------------- |
+| date     | Date             | Selected date        |
+| tasks    | Task[]           | Tasks for the date   |
+| onEdit   | (task) => void   | Edit task callback   |
 | onDelete | (taskId) => void | Delete task callback |
 
 **Backend Commands:**
@@ -124,10 +124,10 @@ Single task row in the task list.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| task | Task | Task data |
-| onEdit | () => void | Edit callback |
+| Prop     | Type       | Description     |
+| -------- | ---------- | --------------- |
+| task     | Task       | Task data       |
+| onEdit   | () => void | Edit callback   |
 | onDelete | () => void | Delete callback |
 
 **UI Elements:**
@@ -146,13 +146,13 @@ Form for creating/editing tasks.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| task | Task | null | Task to edit (null for new) |
-| templates | Template[] | Available templates |
-| categories | CategoryNode | Category tree |
-| onSave | (task) => void | Save callback |
-| onCancel | () => void | Cancel callback |
+| Prop       | Type           | Description                 |
+| ---------- | -------------- | --------------------------- |
+| task       | Task           | Task to edit (null for new) |
+| templates  | Template[]     | Available templates         |
+| categories | CategoryNode   | Category tree               |
+| onSave     | (task) => void | Save callback               |
+| onCancel   | () => void     | Cancel callback             |
 
 **State:**
 
@@ -185,12 +185,12 @@ Hierarchical category selector.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| categories | CategoryNode | Category tree |
-| value | string | Selected path |
-| onChange | (path) => void | Selection callback |
-| showHidden | boolean | Show hidden categories |
+| Prop       | Type           | Description            |
+| ---------- | -------------- | ---------------------- |
+| categories | CategoryNode   | Category tree          |
+| value      | string         | Selected path          |
+| onChange   | (path) => void | Selection callback     |
+| showHidden | boolean        | Show hidden categories |
 
 **UI Elements:**
 
@@ -207,10 +207,10 @@ ActiTime-ready table view.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| entries | MergedEntry[] | Merged entries |
-| totalTime | number | Total minutes |
+| Prop      | Type          | Description    |
+| --------- | ------------- | -------------- |
+| entries   | MergedEntry[] | Merged entries |
+| totalTime | number        | Total minutes  |
 
 **UI Elements:**
 
@@ -228,9 +228,9 @@ Date navigation component.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| value | Date | Selected date |
+| Prop     | Type           | Description          |
+| -------- | -------------- | -------------------- |
+| value    | Date           | Selected date        |
 | onChange | (date) => void | Date change callback |
 
 **UI Elements:**
@@ -248,9 +248,9 @@ Week view with day summaries.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| weekStart | Date | Start of week |
+| Prop        | Type           | Description            |
+| ----------- | -------------- | ---------------------- |
+| weekStart   | Date           | Start of week          |
 | onDaySelect | (date) => void | Day selection callback |
 
 **Backend Commands:**
@@ -272,9 +272,9 @@ Summary statistics for current day.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| tasks | Task[] | Day's tasks |
+| Prop     | Type     | Description   |
+| -------- | -------- | ------------- |
+| tasks    | Task[]   | Day's tasks   |
 | settings | Settings | User settings |
 
 **UI Elements:**
@@ -292,12 +292,12 @@ List of task templates.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| templates | Template[] | All templates |
-| onApply | (template) => void | Apply template |
-| onEdit | (template) => void | Edit template |
-| onDelete | (templateId) => void | Delete template |
+| Prop      | Type                 | Description     |
+| --------- | -------------------- | --------------- |
+| templates | Template[]           | All templates   |
+| onApply   | (template) => void   | Apply template  |
+| onEdit    | (template) => void   | Edit template   |
+| onDelete  | (templateId) => void | Delete template |
 
 **Backend Commands:**
 
@@ -312,12 +312,12 @@ Form for creating/editing templates.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| template | Template | null | Template to edit |
-| categories | CategoryNode | Category tree |
-| onSave | (template) => void | Save callback |
-| onCancel | () => void | Cancel callback |
+| Prop       | Type               | Description      |
+| ---------- | ------------------ | ---------------- |
+| template   | Template           | Template to edit |
+| categories | CategoryNode       | Category tree    |
+| onSave     | (template) => void | Save callback    |
+| onCancel   | () => void         | Cancel callback  |
 
 **Backend Commands:**
 
@@ -332,12 +332,12 @@ Category management tree view.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| categories | CategoryNode | Category tree |
-| onAdd | (parentPath) => void | Add category |
-| onHide | (path) => void | Hide category |
-| onUnhide | (path) => void | Unhide category |
+| Prop       | Type                 | Description     |
+| ---------- | -------------------- | --------------- |
+| categories | CategoryNode         | Category tree   |
+| onAdd      | (parentPath) => void | Add category    |
+| onHide     | (path) => void       | Hide category   |
+| onUnhide   | (path) => void       | Unhide category |
 
 **Backend Commands:**
 
@@ -354,10 +354,10 @@ Application settings panel.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| settings | Settings | Current settings |
-| onSave | (settings) => void | Save callback |
+| Prop     | Type               | Description      |
+| -------- | ------------------ | ---------------- |
+| settings | Settings           | Current settings |
+| onSave   | (settings) => void | Save callback    |
 
 **Sections:**
 
@@ -408,12 +408,12 @@ Modal shown when closing with active timer.
 
 **Props:**
 
-| Prop | Type | Description |
-|------|------|-------------|
-| timerState | TimerState | Active timer |
-| onSave | () => void | Save and close |
-| onDiscard | () => void | Discard and close |
-| onCancel | () => void | Cancel close |
+| Prop       | Type       | Description       |
+| ---------- | ---------- | ----------------- |
+| timerState | TimerState | Active timer      |
+| onSave     | () => void | Save and close    |
+| onDiscard  | () => void | Discard and close |
+| onCancel   | () => void | Cancel close      |
 
 **UI Elements:**
 

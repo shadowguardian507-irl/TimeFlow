@@ -70,7 +70,8 @@ As a Time Tracker, I want to mark a task as "mergeable" so that its time gets di
 
 **Priority**: High
 
-As a Time Tracker, I want mergeable task time distributed proportionally to direct tasks so that longer tasks receive more of the overhead time.
+As a Time Tracker, I want mergeable task time distributed proportionally to direct tasks so that longer tasks receive
+more of the overhead time.
 
 **Acceptance Criteria**:
 
@@ -96,7 +97,8 @@ As a Time Tracker, I want mergeable task time distributed evenly to direct tasks
 
 **Priority**: Medium
 
-As a Time Tracker, I want to manually specify which direct tasks receive mergeable time so that I have full control over distribution.
+As a Time Tracker, I want to manually specify which direct tasks receive mergeable time so that I have full control
+over distribution.
 
 **Acceptance Criteria**:
 
@@ -122,7 +124,8 @@ As a Time Tracker, I want to assign weights to direct tasks for distribution so 
 
 **Priority**: Medium
 
-As a Time Tracker, I want to set a default distribution strategy for task types so that common overhead tasks automatically use my preferred method.
+As a Time Tracker, I want to set a default distribution strategy for task types so that common overhead tasks
+automatically use my preferred method.
 
 **Acceptance Criteria**:
 
@@ -139,7 +142,8 @@ As a Time Tracker, I want to set a default distribution strategy for task types 
 
 **Priority**: High
 
-As a Time Tracker, I want to select categories from a hierarchical picker so that I can quickly find the right ActiTime category.
+As a Time Tracker, I want to select categories from a hierarchical picker so that I can quickly find the right ActiTime
+category.
 
 **Acceptance Criteria**:
 
@@ -420,7 +424,7 @@ As a Time Tracker, I want to change my theme setting so that I can switch betwee
 ## Story Summary
 
 | Epic | Stories | Priority Distribution |
-|------|---------|----------------------|
+| ------ | --------- | ---------------------- |
 | Time Entry | 9 | 4 High, 3 Medium, 2 Low |
 | Category Management | 3 | 1 High, 2 Medium |
 | Common Tasks | 4 | 2 High, 1 Medium, 1 Low |

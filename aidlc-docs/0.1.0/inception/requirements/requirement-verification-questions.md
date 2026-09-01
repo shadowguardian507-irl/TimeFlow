@@ -28,11 +28,14 @@ D) Weighted distribution (I assign weights to real tasks)
 E) Other (please describe after [Answer] tag below)
 
 [Answer] E
-having the option to define any of the options per task (A -> D) would be really helpful, especially if you can assign the behaviour to a type of task as a default ie desk setup gets option A by default but on some occasions I may want to use option B
+having the option to define any of the options per task (A -> D) would be really helpful, especially if you can assign
+the behaviour to a type of task as a default ie desk setup gets option A by default but on some occasions I may want to
+use option B
 
 ---
 
 ## Question 3
+
 How do you want to define ActiTime categories?
 
 A) Manually type them in as needed
@@ -42,11 +45,14 @@ D) Both manual entry and hierarchical picker
 E) Other (please describe after [Answer] tag below)
 
 [Answer] E
-mostly would be option C on a day to day basis, but I would need to have a way of adding categories and hiding them from being added to future items as time goes on (our actitime admins sometimes add and remove categories ie when a big project is started and finished)
+mostly would be option C on a day to day basis, but I would need to have a way of adding categories and hiding them from
+being added to future items as time goes on (our actitime admins sometimes add and remove categories ie when a big
+project is started and finished)
 
 ---
 
 ## Question 4
+
 For "common tasks" (repeated tasks), what information should be stored?
 
 A) Just the task name
@@ -60,6 +66,7 @@ E) Other (please describe after [Answer] tag below)
 ---
 
 ## Question 5
+
 How should the "ActiTime-tuned view" present the merged/adjusted times?
 
 A) Simple list with task name, category, and total time
@@ -73,6 +80,7 @@ E) Other (please describe after [Answer] tag below)
 ---
 
 ## Question 6
+
 How do you want to handle multiple days of time tracking?
 
 A) Single day view only - start fresh each day
@@ -86,6 +94,7 @@ E) Other (please describe after [Answer] tag below)
 ---
 
 ## Question 7
+
 Where should the application store its data?
 
 A) Local file storage only (JSON/SQLite on disk)
@@ -99,6 +108,7 @@ local storage should be as yaml files
 ---
 
 ## Question 8
+
 For the Jira/Atlassian integration (bonus feature), what level of integration do you need?
 
 A) Read-only - just pull ticket list to select from
@@ -108,11 +118,13 @@ D) Skip this feature for now - focus on core functionality first
 E) Other (please describe after [Answer] tag below)
 
 [Answer] A
-readonly for now, maybe in future it would be nice to have an option to push the time to the ticket but for now that's not needed
+readonly for now, maybe in future it would be nice to have an option to push the time to the ticket but for now that's
+not needed
 
 ---
 
 ## Question 9
+
 What visual style/theme do you prefer for the application?
 
 A) Native macOS look and feel (follows system theme)
@@ -122,11 +134,13 @@ D) User-selectable theme (light/dark/system)
 E) Other (please describe after [Answer] tag below)
 
 [Answer] D
-the app should follow the system theme by default 'out of the box' but should let the user choose after that, it would be nice if it asked the initial preference on first startup
+the app should follow the system theme by default 'out of the box' but should let the user choose after that, it would
+be nice if it asked the initial preference on first startup
 
 ---
 
 ## Question 10
+
 How important is keyboard navigation and shortcuts?
 
 A) Essential - I want to do everything without touching the mouse
@@ -135,12 +149,13 @@ C) Not important - mouse/trackpad is fine
 D) Other (please describe after [Answer] tag below)
 
 [Answer] C
-for now there is no need for shortcuts, maybe we can add some in future but if so there should always be an option for the user to turn them off completely
-
+for now there is no need for shortcuts, maybe we can add some in future but if so there should always be an option for
+the user to turn them off completely
 
 ---
 
 ## Question 11: Security Extensions
+
 Should security extension rules be enforced for this project?
 
 A) Yes — enforce all SECURITY rules as blocking constraints (recommended for production-grade applications)
@@ -152,6 +167,7 @@ C) Other (please describe after [Answer] tag below)
 ---
 
 ## Question 12
+
 Do you need any reporting or analytics features?
 
 A) No - just the daily time views are sufficient
