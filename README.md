@@ -92,9 +92,11 @@ timeflow/
 
 ## Data Storage
 
-TimeFlow stores data in YAML files in the operating system's application data directory. The current storage namespace is `uk.etheria-software/TimeFlow`.
+TimeFlow stores data in YAML files in the operating system's application data directory. The current storage namespace
+is `uk.etheria-software/TimeFlow`.
 
-When upgrading from an earlier alpha build, TimeFlow checks the legacy `com/timeflow/TimeFlow` namespace and offers to copy the existing data into the current namespace.
+When upgrading from an earlier alpha build, TimeFlow checks the legacy `com/timeflow/TimeFlow` namespace and offers to
+copy the existing data into the current namespace.
 
 The data includes:
 

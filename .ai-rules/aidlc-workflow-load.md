@@ -22,7 +22,8 @@ The AI model intelligently assesses what stages are needed based on:
 
 - `./.ai-rules/aidlc-rule-details/`
 
-All subsequent rule detail file references (e.g., `common/process-overview.md`, `inception/workspace-detection.md`) are relative to the above directory.
+All subsequent rule detail file references (e.g., `common/process-overview.md`, `inception/workspace-detection.md`) are
+relative to the above directory.
 
 **Common Rules**: ALWAYS load common rules at workflow start:
 
@@ -34,12 +35,15 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ## MANDATORY: Extensions Loading (Context-Optimised)
 
-**CRITICAL**: At workflow start, scan the `extensions/` directory recursively but load ONLY lightweight opt-in files — NOT full rule files. Full rule files are loaded on-demand after the user opts in.
+**CRITICAL**: At workflow start, scan the `extensions/` directory recursively but load ONLY lightweight opt-in files— NOT
+full rule files. Full rule files are loaded on-demand after the user opts in.
 
 **Loading process**:
 
 1. List all subdirectories under `extensions/` (e.g., `extensions/security/`, `extensions/compliance/`)
-2. In each subdirectory, load ONLY `*.opt-in.md` files — these contain the extension's opt-in prompt. The corresponding rules file is derived by convention: strip the `.opt-in.md` suffix and append `.md` (e.g., `security-baseline.opt-in.md` → `security-baseline.md`)
+2. In each subdirectory, load ONLY `*.opt-in.md` files — these contain the extension's opt-in prompt. The corresponding
+   rules file is derived by convention: strip the `.opt-in.md` suffix and append `.md` (e.g.,
+   `security-baseline.opt-in.md` → `security-baseline.md`)
 3. Do NOT load full rule files (e.g., `security-baseline.md`) at this stage
 
 **Deferred Rule Loading**:
@@ -52,12 +56,19 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 **Enforcement** (applies only to loaded/enabled extensions):
 
 - Extension rules are hard constraints, not optional guidance
-- At each stage, the model intelligently evaluates which extension rules are applicable based on the stage's purpose, the artefacts being produced, and the context of the work — enforce only those rules that are relevant
-- Rules that are not applicable to the current stage should be marked as N/A in the compliance summary (this is not a blocking finding)
-- Non-compliance with any applicable enabled extension rule is a **blocking finding** — do NOT present stage completion until resolved
-- When presenting stage completion, include a summary of extension rule compliance (compliant/non-compliant/N/A per rule, with brief rationale for N/A determinations)
+- At each stage, the model intelligently evaluates which extension rules are applicable based on the stage's purpose,
+  the artefacts being produced, and the context of the work — enforce only those rules that are relevant
+- Rules that are not applicable to the current stage should be marked as N/A in the compliance summary (this is not a
+  blocking finding)
+- Non-compliance with any applicable enabled extension rule is a **blocking finding** — do NOT present stage completion
+  until resolved
+- When presenting stage completion, include a summary of extension rule compliance (compliant/non-compliant/N/A per
+  rule, with brief rationale for N/A determinations)
 
-**Conditional Enforcement**: Extensions may be conditionally enabled/disabled. See `inception/requirements-analysis.md` for the opt-in mechanism. Before enforcing any extension at ANY stage, check its `Enabled` status in `aidlc-docs/aidlc-state.md` under `## Extension Configuration`. Skip disabled extensions and log the skip in audit.md. Default to enforced if no configuration exists.
+**Conditional Enforcement**: Extensions may be conditionally enabled/disabled. See `inception/requirements-analysis.md`
+for the opt-in mechanism. Before enforcing any extension at ANY stage, check its `Enabled` status in
+`aidlc-docs/aidlc-state.md` under `## Extension Configuration`. Skip disabled extensions and log the skip in audit.md.
+Default to enforced if no configuration exists.
 
 ## MANDATORY: Content Validation
 
@@ -153,7 +164,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Generate technology stack documentation
    - Generate dependencies documentation
 
-4. **Wait for Explicit Approval**: Present detailed completion message (see reverse-engineering.md for message format) - DO NOT PROCEED until user confirms
+4. **Wait for Explicit Approval**: Present detailed completion message (see reverse-engineering.md for message
+   format) - DO NOT PROCEED until user confirms
 5. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ### Requirements Analysis (ALWAYS EXECUTE - Adaptive Depth)
@@ -176,7 +188,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Ask clarifying questions (if needed)
    - Generate requirements document
 4. Execute at appropriate depth (minimal/standard/comprehensive)
-5. **Wait for Explicit Approval**: Follow approval format from requirements-analysis.md detailed steps - DO NOT PROCEED until user confirms
+5. **Wait for Explicit Approval**: Follow approval format from requirements-analysis.md detailed steps - DO NOT PROCEED
+   until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ### User Stories (CONDITIONAL)
@@ -253,7 +266,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 6. Execute at appropriate depth (minimal/standard/comprehensive)
 7. **PART 1 - Planning**: Create story plan with questions, wait for user answers, analyse for ambiguities, get approval
 8. **PART 2 - Generation**: Execute approved plan to generate stories and personas
-9. **Wait for Explicit Approval**: Follow approval format from user-stories.md detailed steps - DO NOT PROCEED until user confirms
+9. **Wait for Explicit Approval**: Follow approval format from user-stories.md detailed steps - DO NOT PROCEED until
+   user confirms
 10. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ### Workflow Planning (ALWAYS EXECUTE)
@@ -272,7 +286,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Create multi-package change sequence (if brownfield)
    - Generate workflow visualisation (VALIDATE Mermaid syntax before writing)
 6. **MANDATORY**: Validate all content before file creation per content-validation.md rules
-7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasising user control to override recommendations - DO NOT PROCEED until user confirms
+7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasising
+   user control to override recommendations - DO NOT PROCEED until user confirms
 8. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ### Application Design (CONDITIONAL)
@@ -296,7 +311,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `inception/application-design.md`
 3. Load reverse engineering artefacts (if brownfield)
 4. Execute at appropriate depth (minimal/standard/comprehensive)
-5. **Wait for Explicit Approval**: Present detailed completion message (see application-design.md for message format) - DO NOT PROCEED until user confirms
+5. **Wait for Explicit Approval**: Present detailed completion message (see application-design.md for message
+   format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ### Units Generation (CONDITIONAL)
@@ -319,7 +335,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `inception/units-generation.md`
 3. Load reverse engineering artefacts (if brownfield)
 4. Execute at appropriate depth (minimal/standard/comprehensive)
-5. **Wait for Explicit Approval**: Present detailed completion message (see units-generation.md for message format) - DO NOT PROCEED until user confirms
+5. **Wait for Explicit Approval**: Present detailed completion message (see units-generation.md for message
+   format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ---
@@ -366,8 +383,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/functional-design.md`
 3. Execute functional design for this unit
-4. **MANDATORY**: Present standardised 2-option completion message as defined in functional-design.md - DO NOT use emergent 3-option behaviour
-5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+4. **MANDATORY**: Present standardised 2-option completion message as defined in functional-design.md - DO NOT use
+   emergent 3-option behaviour
+5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT
+   PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 #### NFR Requirements (CONDITIONAL, per-unit)
@@ -389,8 +408,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/nfr-requirements.md`
 3. Execute NFR assessment for this unit
-4. **MANDATORY**: Present standardised 2-option completion message as defined in nfr-requirements.md - DO NOT use emergent behaviour
-5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+4. **MANDATORY**: Present standardised 2-option completion message as defined in nfr-requirements.md - DO NOT use
+   emergent behaviour
+5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT
+   PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 #### NFR Design (CONDITIONAL, per-unit)
@@ -411,7 +432,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `construction/nfr-design.md`
 3. Execute NFR design for this unit
 4. **MANDATORY**: Present standardised 2-option completion message as defined in nfr-design.md - DO NOT use emergent behaviour
-5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT
+   PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 #### Infrastructure Design (CONDITIONAL, per-unit)
@@ -432,8 +454,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/infrastructure-design.md`
 3. Execute infrastructure design for this unit
-4. **MANDATORY**: Present standardised 2-option completion message as defined in infrastructure-design.md - DO NOT use emergent behaviour
-5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+4. **MANDATORY**: Present standardised 2-option completion message as defined in infrastructure-design.md - DO NOT
+   use emergent behaviour
+5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT
+   PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 #### Code Generation (ALWAYS EXECUTE, per-unit)
@@ -451,8 +475,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `construction/code-generation.md`
 3. **PART 1 - Planning**: Create code generation plan with checkboxes, get user approval
 4. **PART 2 - Generation**: Execute approved plan to generate code for this unit
-5. **MANDATORY**: Present standardised 2-option completion message as defined in code-generation.md - DO NOT use emergent behaviour
-6. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
+5. **MANDATORY**: Present standardised 2-option completion message as defined in code-generation.md - DO NOT use
+   emergent behaviour
+6. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT
+   PROCEED until user confirms
 7. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ---
@@ -467,8 +493,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Integration test instructions (test interactions between units)
    - Performance test instructions (if applicable)
    - Additional test instructions as needed (contract tests, security tests, e2e tests)
-4. Create instruction files in build-and-test/ subdirectory: build-instructions.md, unit-test-instructions.md, integration-test-instructions.md, performance-test-instructions.md, build-and-test-summary.md
-5. **Wait for Explicit Approval**: Ask: "**Build and test instructions complete. Ready to proceed to Operations stage?**" - DO NOT PROCEED until user confirms
+4. Create instruction files in build-and-test/ subdirectory: build-instructions.md, unit-test-instructions.md,
+   integration-test-instructions.md, performance-test-instructions.md, build-and-test-summary.md
+5. **Wait for Explicit Approval**: Ask:
+   "**Build and test instructions complete. Ready to proceed to Operations stage?**" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ---
@@ -511,7 +539,8 @@ The Operations stage will eventually include:
   - **CRITICAL**: Log every interaction, not just approvals
 - **Quality Focus**: Complex changes get full treatment, simple changes stay efficient
 - **Content Validation**: Always validate content before file creation per content-validation.md rules
-- **NO EMERGENT BEHAVIOUR**: Construction phases MUST use standardised 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
+- **NO EMERGENT BEHAVIOUR**: Construction phases MUST use standardised 2-option completion messages as defined in their
+  respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
 
 ### MANDATORY: Plan-Level Checkbox Enforcement
 
@@ -534,8 +563,10 @@ The Operations stage will eventually include:
 - **MANDATORY**: Capture user's COMPLETE RAW INPUT exactly as provided (never summarise)
 - **MANDATORY**: Log every approval prompt with timestamp before asking the user
 - **MANDATORY**: Record every user response with timestamp after receiving it
-- **CRITICAL**: ALWAYS append changes to EDIT audit.md file, NEVER use tools and commands that completely overwrite its contents
-- **CRITICAL**: NEVER use file writing tools and commands that overwrite the entire contents of audit.md, as this causes duplication
+- **CRITICAL**: ALWAYS append changes to EDIT audit.md file, NEVER use tools and commands that completely overwrite its
+  contents
+- **CRITICAL**: NEVER use file writing tools and commands that overwrite the entire contents of audit.md, as this causes
+  duplication
 - Use ISO 8601 format for timestamps (YYYY-MM-DDTHH:MM:SSZ)
 - Include stage context for each entry
 
@@ -592,7 +623,8 @@ The Operations stage will eventually include:
 ```
 
 **Note:**
- `<WORK-ITEM>` can be a placeholder at first and then be changed to a final name at the end of development ie `add-feature-set-x` at the start of dev then `0.2.0` at the end
+ `<WORK-ITEM>` can be a placeholder at first and then be changed to a final name at the end of development ie
+ `add-feature-set-x` at the start of dev then `0.2.0` at the end
 
 **CRITICAL RULE**:
 
