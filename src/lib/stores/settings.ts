@@ -1,4 +1,4 @@
-import { writable, derived } from 'svelte/store';
+import { writable } from 'svelte/store';
 import type { Settings, SettingsUpdate } from '../api/types';
 import * as api from '../api/commands';
 

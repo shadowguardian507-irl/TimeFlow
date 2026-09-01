@@ -13,7 +13,7 @@
     try {
       version = await getVersion();
     } catch {
-      version = '0.1.0'; // fallback
+      version = __APP_VERSION__;
     }
   });
 
