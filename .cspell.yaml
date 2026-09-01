@@ -1,0 +1,27 @@
+---
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: '0.2'
+dictionaryDefinitions:
+  - name: uk-words
+    path: './.cspell/uk-words.txt'
+    addWords: true
+  - name: code-words
+    path: './.cspell/code-words.txt'
+    addWords: true
+  - name: aidlc-words
+    path: './.cspell/aidlc-words.txt'
+    addWords: true
+  - name: upstream-words
+    path: './.cspell/upstream-words.txt'
+    addWords: true
+dictionaries:
+  - uk-words
+  - code-words
+  - aidlc-words
+  - upstream-words
+ignorePaths:
+  - 'node_modules'
+  - '/.cspell/uk-words.txt'
+  - '/.cspell/code-words.txt'
+  - '/.cspell/aidlc-words.txt'
+  - '/.cspell/upstream-words.txt'

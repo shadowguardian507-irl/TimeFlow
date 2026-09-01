@@ -1,0 +1,17 @@
+Dockerfiles
+failback
+fsharpforfunandprofit
+HSTS
+IDOR
+jqwik
+Kotest
+NFRA
+NFRD
+nosniff
+proptest
+SAMEORIGIN
+Subresource
+trackpad
+unvalidated
+unvetted
+Wlaschin's
