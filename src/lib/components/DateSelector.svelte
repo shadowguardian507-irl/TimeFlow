@@ -16,8 +16,8 @@
   }
 
   function changeDate(days: number) {
-    const date = new Date(value + 'T00:00:00');
-    date.setDate(date.getDate() + days);
+    const date = new Date(value + 'T00:00:00Z');
+    date.setUTCDate(date.getUTCDate() + days);
     const newDate = date.toISOString().split('T')[0];
     dispatch('change', newDate);
   }
