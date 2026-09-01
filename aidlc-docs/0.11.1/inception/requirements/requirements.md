@@ -58,6 +58,7 @@
 ## Non-Functional Requirements
 
 - Build output should be free of the Svelte warnings addressed in this release.
+- Default Linux release packaging should avoid known AppImage tooling failures on rolling-release Arch hosts.
 - Dependency versions should be pinned tightly enough to prevent avoidable Tauri minor-version drift.
 - Security audit commands should be discoverable through `make help`.
 - Changes should remain local to the existing app architecture.
@@ -72,4 +73,6 @@
 - Existing alpha data can be copied into the current app data namespace when no current data exists.
 - Svelte accessibility/compiler warnings reported during the 0.11.0 work are resolved.
 - Sidebar version display follows the app version configured in Tauri metadata.
-- `make version-check` confirms `package.json`, `src-tauri/Cargo.toml`, `src-tauri/tauri.conf.json`, and `src-tauri/Cargo.lock` are in sync.
+- `make version-check` confirms `package.json`, `src-tauri/Cargo.toml`,
+  `src-tauri/tauri.conf.json`, and `src-tauri/Cargo.lock` are in sync.
+- `pnpm tauri build` completes successfully and emits versioned `.deb` and `.rpm` packages.

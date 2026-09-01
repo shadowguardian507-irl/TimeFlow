@@ -40,6 +40,7 @@ maintenance fixes rather than new user-facing product capabilities.
 | Svelte warnings                 | Resolve reported accessibility and unused export warnings.                                        | `pnpm run build` passes without the reported warnings.                                    |
 | Sidebar version display         | Use Tauri runtime metadata with a build-time app metadata fallback.                               | `pnpm run build` passes and no sidebar version literal remains.                           |
 | Version sync tooling            | Add Makefile targets to check and apply calculated release versions across app manifests.         | `make version-set VERSION=0.10.3` and `make version-check` pass.                          |
+| Linux packaging defaults        | Exclude AppImage from the default Tauri bundle targets on Arch due to linuxdeploy strip failures. | `pnpm tauri build` passes and emits `.deb` and `.rpm` packages for `0.11.0`.              |
 
 ## Risk Assessment
 

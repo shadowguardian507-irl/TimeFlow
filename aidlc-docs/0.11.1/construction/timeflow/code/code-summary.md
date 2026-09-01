@@ -44,6 +44,8 @@ Primary areas:
 - Updated Rust dependency chain to remove the known `quick-xml` advisory path.
 - Updated JavaScript/Svelte/Vite tooling to remediate known advisories.
 - Pinned Tauri JavaScript packages and Rust crates to matching major/minor release lines.
+- Limited default Tauri Linux bundle targets to `deb` and `rpm` so standard
+  builds do not fail in AppImage linuxdeploy on Arch.
 
 Primary areas:
 
@@ -52,6 +54,7 @@ Primary areas:
 - `pnpm-lock.yaml`
 - `src-tauri/Cargo.toml`
 - `src-tauri/Cargo.lock`
+- `src-tauri/tauri.conf.json`
 - `scripts/sync-version.mjs`
 
 Final relevant dependency state:

@@ -154,3 +154,18 @@ same app version across `package.json`, `src-tauri/Cargo.toml`,
 src-tauri/Cargo.toml --locked --offline`, and `git diff --check` pass.
 
 ---
+
+## DEVELOPMENT - Linux Bundle Target Adjustment
+
+**Timestamp**: 2026-09-01T14:47:23Z
+**User Input**: "ok so I just did the attached, and it did not seem to work"
+**AI Response**: Diagnosed the failing `pnpm tauri build` as an AppImage-only
+linuxdeploy failure on Arch. The build successfully compiled `timeflow v0.11.0`
+and produced the `.deb` and `.rpm`; AppImage failed because linuxdeploy's bundled
+`strip` could not read Arch shared libraries with `.relr.dyn` sections. Updated
+the default Tauri bundle targets to `deb` and `rpm`.
+**Context**: `pnpm tauri build` now exits successfully and emits
+`TimeFlow_0.11.0_amd64.deb` and `TimeFlow-0.11.0-1.x86_64.rpm`.
+`make version-check` and `git diff --check` pass.
+
+---
