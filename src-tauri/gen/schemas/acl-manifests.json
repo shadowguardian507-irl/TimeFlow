@@ -30,7 +30,8 @@
         "allow-identifier",
         "allow-bundle-type",
         "allow-register-listener",
-        "allow-remove-listener"
+        "allow-remove-listener",
+        "allow-supports-multiple-windows"
       ]
     },
     "global_scope_schema": null,
@@ -155,6 +156,16 @@
         },
         "description": "Enables the set_dock_visibility command without any pre-configured scope.",
         "identifier": "allow-set-dock-visibility"
+      },
+      "allow-supports-multiple-windows": {
+        "commands": {
+          "allow": [
+            "supports_multiple_windows"
+          ],
+          "deny": []
+        },
+        "description": "Enables the supports_multiple_windows command without any pre-configured scope.",
+        "identifier": "allow-supports-multiple-windows"
       },
       "allow-tauri-version": {
         "commands": {
@@ -295,6 +306,16 @@
         },
         "description": "Denies the set_dock_visibility command without any pre-configured scope.",
         "identifier": "deny-set-dock-visibility"
+      },
+      "deny-supports-multiple-windows": {
+        "commands": {
+          "allow": [],
+          "deny": [
+            "supports_multiple_windows"
+          ]
+        },
+        "description": "Denies the supports_multiple_windows command without any pre-configured scope.",
+        "identifier": "deny-supports-multiple-windows"
       },
       "deny-tauri-version": {
         "commands": {
@@ -1233,6 +1254,7 @@
         "allow-set-visible",
         "allow-set-temp-dir-path",
         "allow-set-icon-as-template",
+        "allow-set-icon-with-as-template",
         "allow-set-show-menu-on-left-click"
       ]
     },
@@ -1288,6 +1310,16 @@
         },
         "description": "Enables the set_icon_as_template command without any pre-configured scope.",
         "identifier": "allow-set-icon-as-template"
+      },
+      "allow-set-icon-with-as-template": {
+        "commands": {
+          "allow": [
+            "set_icon_with_as_template"
+          ],
+          "deny": []
+        },
+        "description": "Enables the set_icon_with_as_template command without any pre-configured scope.",
+        "identifier": "allow-set-icon-with-as-template"
       },
       "allow-set-menu": {
         "commands": {
@@ -1398,6 +1430,16 @@
         },
         "description": "Denies the set_icon_as_template command without any pre-configured scope.",
         "identifier": "deny-set-icon-as-template"
+      },
+      "deny-set-icon-with-as-template": {
+        "commands": {
+          "allow": [],
+          "deny": [
+            "set_icon_with_as_template"
+          ]
+        },
+        "description": "Denies the set_icon_with_as_template command without any pre-configured scope.",
+        "identifier": "deny-set-icon-with-as-template"
       },
       "deny-set-menu": {
         "commands": {
@@ -1867,12 +1909,24 @@
         "allow-cursor-position",
         "allow-theme",
         "allow-is-always-on-top",
+        "allow-activity-name",
+        "allow-scene-identifier",
         "allow-internal-toggle-maximize"
       ]
     },
     "global_scope_schema": null,
     "permission_sets": {},
     "permissions": {
+      "allow-activity-name": {
+        "commands": {
+          "allow": [
+            "activity_name"
+          ],
+          "deny": []
+        },
+        "description": "Enables the activity_name command without any pre-configured scope.",
+        "identifier": "allow-activity-name"
+      },
       "allow-available-monitors": {
         "commands": {
           "allow": [
@@ -2192,6 +2246,16 @@
         },
         "description": "Enables the scale_factor command without any pre-configured scope.",
         "identifier": "allow-scale-factor"
+      },
+      "allow-scene-identifier": {
+        "commands": {
+          "allow": [
+            "scene_identifier"
+          ],
+          "deny": []
+        },
+        "description": "Enables the scene_identifier command without any pre-configured scope.",
+        "identifier": "allow-scene-identifier"
       },
       "allow-set-always-on-bottom": {
         "commands": {
@@ -2633,6 +2697,16 @@
         "description": "Enables the unminimize command without any pre-configured scope.",
         "identifier": "allow-unminimize"
       },
+      "deny-activity-name": {
+        "commands": {
+          "allow": [],
+          "deny": [
+            "activity_name"
+          ]
+        },
+        "description": "Denies the activity_name command without any pre-configured scope.",
+        "identifier": "deny-activity-name"
+      },
       "deny-available-monitors": {
         "commands": {
           "allow": [],
@@ -2952,6 +3026,16 @@
         },
         "description": "Denies the scale_factor command without any pre-configured scope.",
         "identifier": "deny-scale-factor"
+      },
+      "deny-scene-identifier": {
+        "commands": {
+          "allow": [],
+          "deny": [
+            "scene_identifier"
+          ]
+        },
+        "description": "Denies the scene_identifier command without any pre-configured scope.",
+        "identifier": "deny-scene-identifier"
       },
       "deny-set-always-on-bottom": {
         "commands": {
@@ -3400,8 +3484,6 @@
       "description": "This permission set configures the types of dialogs\navailable from the dialog plugin.\n\n#### Granted Permissions\n\nAll dialog types are enabled.\n\n\n",
       "identifier": "default",
       "permissions": [
-        "allow-ask",
-        "allow-confirm",
         "allow-message",
         "allow-save",
         "allow-open"
@@ -3413,21 +3495,21 @@
       "allow-ask": {
         "commands": {
           "allow": [
-            "ask"
+            "message"
           ],
           "deny": []
         },
-        "description": "Enables the ask command without any pre-configured scope.",
+        "description": "Enables the ask command without any pre-configured scope. (**DEPRECATED**: This is now an alias to `allow-message` and will be removed in v3)",
         "identifier": "allow-ask"
       },
       "allow-confirm": {
         "commands": {
           "allow": [
-            "confirm"
+            "message"
           ],
           "deny": []
         },
-        "description": "Enables the confirm command without any pre-configured scope.",
+        "description": "Enables the confirm command without any pre-configured scope. (**DEPRECATED**: This is now an alias to `allow-message` and will be removed in v3)",
         "identifier": "allow-confirm"
       },
       "allow-message": {
@@ -3464,20 +3546,20 @@
         "commands": {
           "allow": [],
           "deny": [
-            "ask"
+            "message"
           ]
         },
-        "description": "Denies the ask command without any pre-configured scope.",
+        "description": "Denies the ask command without any pre-configured scope. (**DEPRECATED**: This is now an alias to `deny-message` and will be removed in v3)",
         "identifier": "deny-ask"
       },
       "deny-confirm": {
         "commands": {
           "allow": [],
           "deny": [
-            "confirm"
+            "message"
           ]
         },
-        "description": "Denies the confirm command without any pre-configured scope.",
+        "description": "Denies the confirm command without any pre-configured scope. (**DEPRECATED**: This is now an alias to `deny-message` and will be removed in v3)",
         "identifier": "deny-confirm"
       },
       "deny-message": {
