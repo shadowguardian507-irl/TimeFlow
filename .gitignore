@@ -1,0 +1,4 @@
+/venv
+/node_modules
+/src-tauri/target
+.DS_Store
