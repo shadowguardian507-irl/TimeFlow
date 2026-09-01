@@ -15,11 +15,13 @@ elif
 etheria-software
 focusable
 jmeter
+linuxdeploy
 LOCALDATA
 nocapture
 nsapp
 println
 pytest
+relr
 reparent
 rgba
 rustc
