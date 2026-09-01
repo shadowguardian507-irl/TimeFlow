@@ -1,0 +1,21 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v6.0.0
+  hooks:
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
+  - id: check-toml
+  - id: check-json
+  - id: check-illegal-windows-names
+  - id: check-symlinks
+  - id: check-case-conflict
+  - id: destroyed-symlinks
+  - id: pretty-format-json
+    args: [--autofix, --indent=2]
+
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.49.1
+  hooks:
+  - id: markdownlint
+    exclude: '.ai-rules/aidlc-rule-details/'
