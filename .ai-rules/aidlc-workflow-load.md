@@ -31,7 +31,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 - Load `common/question-format-guide.md` for question formatting rules
 - Reference these throughout the workflow execution
 
-## MANDATORY: Extensions Loading (Context-Optimized)
+## MANDATORY: Extensions Loading (Context-Optimised)
 
 **CRITICAL**: At workflow start, scan the `extensions/` directory recursively but load ONLY lightweight opt-in files — NOT full rule files. Full rule files are loaded on-demand after the user opts in.
 
@@ -51,7 +51,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 **Enforcement** (applies only to loaded/enabled extensions):
 
 - Extension rules are hard constraints, not optional guidance
-- At each stage, the model intelligently evaluates which extension rules are applicable based on the stage's purpose, the artifacts being produced, and the context of the work — enforce only those rules that are relevant
+- At each stage, the model intelligently evaluates which extension rules are applicable based on the stage's purpose, the artefacts being produced, and the context of the work — enforce only those rules that are relevant
 - Rules that are not applicable to the current stage should be marked as N/A in the compliance summary (this is not a blocking finding)
 - Non-compliance with any applicable enabled extension rule is a **blocking finding** — do NOT present stage completion until resolved
 - When presenting stage completion, include a summary of extension rule compliance (compliant/non-compliant/N/A per rule, with brief rationale for N/A determinations)
@@ -119,8 +119,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Check for existing aidlc-state.md (resume if found)
    - Scan workspace for existing code
    - Determine if brownfield or greenfield
-   - Check for existing reverse engineering artifacts
-4. Determine next phase: Reverse Engineering (if brownfield and no artifacts) OR Requirements Analysis
+   - Check for existing reverse engineering artefacts
+4. Determine next phase: Reverse Engineering (if brownfield and no artefacts) OR Requirements Analysis
 5. **MANDATORY**: Log findings in audit.md
 6. Present completion message to user (see workspace-detection.md for message formats)
 7. Automatically proceed to next phase
@@ -130,19 +130,19 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 **Execute IF**:
 
 - Existing codebase detected
-- No previous reverse engineering artifacts found
+- No previous reverse engineering artefacts found
 
 **Skip IF**:
 
 - Greenfield project
-- Previous reverse engineering artifacts exist
+- Previous reverse engineering artefacts exist
 
 **Execution**:
 
 1. **MANDATORY**: Log start of reverse engineering in audit.md
 2. Load all steps from `inception/reverse-engineering.md`
 3. Execute reverse engineering:
-   - Analyze all packages and components
+   - Analyse all packages and components
    - Generate a business overview of the whole system covering the business transactions
    - Generate architecture documentation
    - Generate code structure documentation
@@ -168,8 +168,8 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `inception/requirements-analysis.md`
 3. Execute requirements analysis:
-   - Load reverse engineering artifacts (if brownfield)
-   - Analyze user request (intent analysis)
+   - Load reverse engineering artefacts (if brownfield)
+   - Analyse user request (intent analysis)
    - Determine requirements depth needed
    - Assess current requirements
    - Ask clarifying questions (if needed)
@@ -229,7 +229,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 **ASSESSMENT PROCESS**:
 
-1. Analyze request complexity and scope
+1. Analyse request complexity and scope
 2. Identify user impact (direct or indirect)
 3. Evaluate business context and stakeholder needs
 4. Consider team collaboration benefits
@@ -239,7 +239,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 **User Stories has two parts within one stage**:
 
-1. **Part 1 - Planning**: Create story plan with questions, collect answers, analyze for ambiguities, get approval
+1. **Part 1 - Planning**: Create story plan with questions, collect answers, analyse for ambiguities, get approval
 2. **Part 2 - Generation**: Execute approved plan to generate stories and personas
 
 **Execution**:
@@ -247,10 +247,10 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `inception/user-stories.md`
 3. **MANDATORY**: Perform intelligent assessment (Step 1 in user-stories.md) to validate user stories are needed
-4. Load reverse engineering artifacts (if brownfield)
+4. Load reverse engineering artefacts (if brownfield)
 5. If Requirements exist, reference them when creating stories
 6. Execute at appropriate depth (minimal/standard/comprehensive)
-7. **PART 1 - Planning**: Create story plan with questions, wait for user answers, analyze for ambiguities, get approval
+7. **PART 1 - Planning**: Create story plan with questions, wait for user answers, analyse for ambiguities, get approval
 8. **PART 2 - Generation**: Execute approved plan to generate stories and personas
 9. **Wait for Explicit Approval**: Follow approval format from user-stories.md detailed steps - DO NOT PROCEED until user confirms
 10. **MANDATORY**: Log user's response in audit.md with complete raw input
@@ -261,7 +261,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `inception/workflow-planning.md`
 3. **MANDATORY**: Load content validation rules from `common/content-validation.md`
 4. Load all prior context:
-   - Reverse engineering artifacts (if brownfield)
+   - Reverse engineering artefacts (if brownfield)
    - Intent analysis
    - Requirements (if executed)
    - User stories (if executed)
@@ -269,9 +269,9 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
    - Determine which phases to execute
    - Determine depth level for each phase
    - Create multi-package change sequence (if brownfield)
-   - Generate workflow visualization (VALIDATE Mermaid syntax before writing)
+   - Generate workflow visualisation (VALIDATE Mermaid syntax before writing)
 6. **MANDATORY**: Validate all content before file creation per content-validation.md rules
-7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasizing user control to override recommendations - DO NOT PROCEED until user confirms
+7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasising user control to override recommendations - DO NOT PROCEED until user confirms
 8. **MANDATORY**: Log user's response in audit.md with complete raw input
 
 ## Application Design (CONDITIONAL)
@@ -293,7 +293,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `inception/application-design.md`
-3. Load reverse engineering artifacts (if brownfield)
+3. Load reverse engineering artefacts (if brownfield)
 4. Execute at appropriate depth (minimal/standard/comprehensive)
 5. **Wait for Explicit Approval**: Present detailed completion message (see application-design.md for message format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
@@ -316,7 +316,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `inception/units-generation.md`
-3. Load reverse engineering artifacts (if brownfield)
+3. Load reverse engineering artefacts (if brownfield)
 4. Execute at appropriate depth (minimal/standard/comprehensive)
 5. **Wait for Explicit Approval**: Present detailed completion message (see units-generation.md for message format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
@@ -365,7 +365,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/functional-design.md`
 3. Execute functional design for this unit
-4. **MANDATORY**: Present standardized 2-option completion message as defined in functional-design.md - DO NOT use emergent 3-option behavior
+4. **MANDATORY**: Present standardised 2-option completion message as defined in functional-design.md - DO NOT use emergent 3-option behaviour
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
@@ -388,7 +388,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/nfr-requirements.md`
 3. Execute NFR assessment for this unit
-4. **MANDATORY**: Present standardized 2-option completion message as defined in nfr-requirements.md - DO NOT use emergent behavior
+4. **MANDATORY**: Present standardised 2-option completion message as defined in nfr-requirements.md - DO NOT use emergent behaviour
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
@@ -409,7 +409,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/nfr-design.md`
 3. Execute NFR design for this unit
-4. **MANDATORY**: Present standardized 2-option completion message as defined in nfr-design.md - DO NOT use emergent behavior
+4. **MANDATORY**: Present standardised 2-option completion message as defined in nfr-design.md - DO NOT use emergent behaviour
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
@@ -431,7 +431,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 1. **MANDATORY**: Log any user input during this stage in audit.md
 2. Load all steps from `construction/infrastructure-design.md`
 3. Execute infrastructure design for this unit
-4. **MANDATORY**: Present standardized 2-option completion message as defined in infrastructure-design.md - DO NOT use emergent behavior
+4. **MANDATORY**: Present standardised 2-option completion message as defined in infrastructure-design.md - DO NOT use emergent behaviour
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
@@ -442,7 +442,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 **Code Generation has two parts within one stage**:
 
 1. **Part 1 - Planning**: Create detailed code generation plan with explicit steps
-2. **Part 2 - Generation**: Execute approved plan to generate code, tests, and artifacts
+2. **Part 2 - Generation**: Execute approved plan to generate code, tests, and artefacts
 
 **Execution**:
 
@@ -450,7 +450,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 2. Load all steps from `construction/code-generation.md`
 3. **PART 1 - Planning**: Create code generation plan with checkboxes, get user approval
 4. **PART 2 - Generation**: Execute approved plan to generate code for this unit
-5. **MANDATORY**: Present standardized 2-option completion message as defined in code-generation.md - DO NOT use emergent behavior
+5. **MANDATORY**: Present standardised 2-option completion message as defined in code-generation.md - DO NOT use emergent behaviour
 6. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 7. **MANDATORY**: Log user's response in audit.md with complete raw input
 
@@ -506,11 +506,11 @@ The Operations stage will eventually include:
 - **Progress Tracking**: Update aidlc-state.md with executed and skipped stages
 - **Complete Audit Trail**: Log ALL user inputs and AI responses in audit.md with timestamps
   - **CRITICAL**: Capture user's COMPLETE RAW INPUT exactly as provided
-  - **CRITICAL**: Never summarize or paraphrase user input in audit log
+  - **CRITICAL**: Never summarise or paraphrase user input in audit log
   - **CRITICAL**: Log every interaction, not just approvals
 - **Quality Focus**: Complex changes get full treatment, simple changes stay efficient
 - **Content Validation**: Always validate content before file creation per content-validation.md rules
-- **NO EMERGENT BEHAVIOR**: Construction phases MUST use standardized 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
+- **NO EMERGENT BEHAVIOUR**: Construction phases MUST use standardised 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
 
 ## MANDATORY: Plan-Level Checkbox Enforcement
 
@@ -530,7 +530,7 @@ The Operations stage will eventually include:
 ## Prompts Logging Requirements
 
 - **MANDATORY**: Log EVERY user input (prompts, questions, responses) with timestamp in audit.md
-- **MANDATORY**: Capture user's COMPLETE RAW INPUT exactly as provided (never summarize)
+- **MANDATORY**: Capture user's COMPLETE RAW INPUT exactly as provided (never summarise)
 - **MANDATORY**: Log every approval prompt with timestamp before asking the user
 - **MANDATORY**: Record every user response with timestamp after receiving it
 - **CRITICAL**: ALWAYS append changes to EDIT audit.md file, NEVER use tools and commands that completely overwrite its contents
@@ -543,7 +543,7 @@ The Operations stage will eventually include:
 ```markdown
 ## [Stage Name or Interaction Type]
 **Timestamp**: [ISO timestamp]
-**User Input**: "[Complete raw user input - never summarized]"
+**User Input**: "[Complete raw user input - never summarised]"
 **AI Response**: "[AI's response or action taken]"
 **Context**: [Stage, action, or decision made]
 

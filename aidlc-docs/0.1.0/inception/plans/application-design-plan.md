@@ -17,9 +17,9 @@ How should the core data models be organized?
 A) Single unified data layer - all models in one module
 B) Domain-separated - models grouped by domain (tasks, categories, templates)
 C) Feature-separated - models grouped by feature (time-entry, views, export)
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 
@@ -30,9 +30,9 @@ How should application state be managed between the Rust backend and Tauri front
 A) Backend-centric - Rust holds all state, frontend requests via commands
 B) Frontend-centric - Frontend holds UI state, backend only for persistence
 C) Hybrid - Backend holds data state, frontend holds UI state
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: A
+[Answer] A
 
 ---
 
@@ -43,9 +43,9 @@ How should the hierarchical category structure be stored?
 A) Flat list with path strings (e.g., "Overhead/People Management/People Care")
 B) Nested tree structure in YAML
 C) Parent-child references (each category has parent_id)
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 
@@ -56,9 +56,9 @@ How should the timer functionality be implemented?
 A) Frontend-only timer with periodic backend sync
 B) Backend timer with frontend polling for updates
 C) Backend timer with event-based frontend updates
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 

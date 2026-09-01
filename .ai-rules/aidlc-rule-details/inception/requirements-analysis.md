@@ -110,11 +110,11 @@ After receiving answers:
    - **ALWAYS** create `aidlc-docs/inception/requirements/requirement-verification-questions.md` unless requirements are exceptionally clear and complete
    - Ask questions about ANY missing, unclear, or ambiguous areas
    - Focus on functional requirements, non-functional requirements, user scenarios, and business context
-   - Request user to fill in all [Answer]: tags directly in the questions document
+   - Request user to fill in all [Answer] tags directly in the questions document
    - If presenting multiple-choice options for answers:
      - Label the options as A, B, C, D etc.
      - Ensure options are mutually exclusive and don't overlap
-     - ALWAYS include option for custom response: "X) Other (please describe after [Answer]: tag below)"
+     - ALWAYS include option for custom response: "X) Other (please describe after [Answer] tag below)"
    - Wait for user answers in the document
    - **MANDATORY**: Analyze ALL answers for ambiguities and create follow-up questions if needed
    - **MANDATORY**: Keep asking questions until ALL ambiguities are resolved OR user explicitly asks to proceed

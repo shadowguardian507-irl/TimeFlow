@@ -17,9 +17,9 @@ How should the user stories be organized?
 A) User Journey-Based - Stories follow user workflows (e.g., "morning time entry flow", "end of day export flow")
 B) Feature-Based - Stories organized around system features (e.g., "time entry stories", "category management stories")
 C) Epic-Based - Hierarchical structure with epics containing related stories
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 
@@ -30,9 +30,9 @@ What level of detail should each story have?
 A) Coarse - Larger stories covering complete features (fewer stories, more scope each)
 B) Fine - Smaller stories covering specific interactions (more stories, less scope each)
 C) Mixed - Coarse for simple features, fine for complex ones like time merging
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: C
+[Answer] C
 
 ---
 
@@ -43,9 +43,9 @@ How detailed should acceptance criteria be?
 A) Given/When/Then format (BDD style)
 B) Simple checklist of conditions
 C) Detailed scenarios with edge cases
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: A
+[Answer] A
 
 ---
 
@@ -56,9 +56,9 @@ How detailed should user personas be?
 A) Minimal - Just role name and primary goal
 B) Standard - Role, goals, pain points, and context
 C) Detailed - Full persona with background, behaviors, and motivations
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 
@@ -70,9 +70,9 @@ A) Yes - Use MoSCoW (Must/Should/Could/Won't)
 B) Yes - Use numeric priority (1-5)
 C) Yes - Use simple High/Medium/Low
 D) No - All stories are equally important for MVP
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: C
+[Answer] C
 
 ---
 

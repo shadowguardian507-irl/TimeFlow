@@ -89,9 +89,9 @@ D) RPO/RTO: Near real-time — Multi-site Active/Active strategy. Highest cost (
 
 E) N/A — Single-region deployment is acceptable, no cross-region DR needed. Rely on multi-zone availability within one region.
 
-X) Other (please describe after [Answer]: tag below)
+X) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 The user's selected RTO/RPO targets MUST be documented in the requirements output and propagated to all downstream stages (Application Design, NFR Requirements, NFR Design, Infrastructure Design).
@@ -118,9 +118,9 @@ B) No formal process exists yet — AI-DLC should propose a lightweight change m
 
 C) N/A — this workload is exempt from formal change management (e.g., internal tooling). Document the exemption rationale.
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **Verification**:
@@ -150,9 +150,9 @@ A) Use our existing CI/CD pipeline — provide the tool (e.g., GitHub Actions, G
 
 B) No pipeline exists — AI-DLC should propose a CI/CD pipeline definition appropriate to the chosen IaC and runtime.
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 
 ## Question: Rollback Mechanism
 How should a failed production deployment be rolled back?
@@ -167,9 +167,9 @@ D) Database-aware rollback required (schema/data migration reversal) — flag fo
 
 E) Use our organization's existing rollback procedure — provide reference
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 
 ## Question: Deployment Style
 What deployment strategy is acceptable for this workload's risk profile?
@@ -182,9 +182,9 @@ C) Blue/green (zero-downtime cutover, higher cost)
 
 D) Canary (progressive traffic shift with automated rollback)
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **Verification**:
@@ -274,9 +274,9 @@ B) Multi-region active-passive — survives region failure with failover. Higher
 
 C) Multi-region active-active — survives region failure with no downtime. Highest cost. (Aligns with Active/Active.)
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **Verification**:
@@ -401,9 +401,9 @@ B) No practice exists — AI-DLC should propose a DR testing schedule and chaos 
 
 C) Defer to the Operations phase — capture test scenarios now, execute during Operations.
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **Verification**:
@@ -429,9 +429,9 @@ A) Use our existing incident response process — provide the reference (e.g., P
 
 B) No formal process exists — AI-DLC should propose a lightweight incident response and Correction of Errors (COE) process for adoption.
 
-X) Other (describe after [Answer]: tag below)
+X) Other (describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **Verification**:

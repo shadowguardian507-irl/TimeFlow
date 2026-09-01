@@ -2,7 +2,7 @@
 
 ## INCEPTION - Workspace Detection
 **Timestamp**: 2026-03-05T00:00:00Z
-**User Input**: "ok so the we need to make an app for easy time managment/logingas it currently stands you have to remember what you did during the day and then put it in actitimeto make matters worse, some tasks need to be meged in to other ones when they get put in actitime ie say you spend  10 min cleaning/seting up you desk when you get to the office ? thats a reall time but when it gets to actitime it has to have its time be devided up and put in to the other 'real' tasks of the dayso we then end up with 2 classifications of tasks a person does- ones that get directly listed in actitime- ones that have to be split up and 'merged' time wise into the aboveso what I really need is a rust+tauri based desktop app for mac that - lets me add tasks and the time they take throughout the day (all types)- lets me define what tasks are considered valid to be sent to actitime- lets me define task catigorys for tasks to go in (matched to what I have in actitime eg one is  'Overhead/People Managment/People Care'-lets me define common tasks that get repeated so I can just add them in from a list - store a full (so I can see all the tasks) and actitime 'tuned' view of the time for ease of copying overbonus feature would be jira/atlasian mcp integration so I can pull in a list of tickets I'm working on (not sure how viable that would be)the above is an inital overview of needs so it may evolve once we get the base line functionality in and stable"
+**User Input**: "ok so the we need to make an app for easy time management/logging as it currently stands you have to remember what you did during the day and then put it in actitime make matters worse, some tasks need to be merged in to other ones when they get put in actitime ie say you spend  10 min cleaning/setting up you desk when you get to the office ? thats a real time but when it gets to actitime it has to have its time be divided up and put in to the other 'real' tasks of the day so we then end up with 2 classifications of tasks a person does- ones that get directly listed in actitime- ones that have to be split up and 'merged' time wise into the above so what I really need is a rust+tauri based desktop app for mac that - lets me add tasks and the time they take throughout the day (all types)- lets me define what tasks are considered valid to be sent to actitime- lets me define task categories for tasks to go in (matched to what I have in actitime eg one is  'Overhead/People Management/People Care'-lets me define common tasks that get repeated so I can just add them in from a list - store a full (so I can see all the tasks) and actitime 'tuned' view of the time for ease of copying over bonus feature would be jira/Atlassian mcp integration so I can pull in a list of tickets I'm working on (not sure how viable that would be)the above is an initial overview of needs so it may evolve once we get the base line functionality in and stable"
 **AI Response**: Initiated AI-DLC workflow. Displayed welcome message. Performed workspace detection.
 **Context**: New project request for Rust+Tauri time management desktop application
 
@@ -97,7 +97,7 @@
 
 ## INCEPTION - User Stories (Approval)
 **Timestamp**: 2026-03-05T00:05:00Z
-**User Input**: "thoes look good to me, please carry on"
+**User Input**: "those look good to me, please carry on"
 **AI Response**: User stories approved. Proceeding to Workflow Planning stage.
 **Context**: User approved personas and stories without changes
 
@@ -191,7 +191,7 @@
 
 ## CONSTRUCTION - Functional Design (Feedback)
 **Timestamp**: 2026-03-05T00:12:00Z
-**User Input**: "in aidlc-docs/construction/timeflow/functional-design/business-logic-model.md I noticed that you used python as the code type, is this just in efect psudo code as the app is to be made in rust for the backend? in aidlc-docs/construction/timeflow/functional-design/domain-entities.md I notced that for Entity: Category there was a duplication of data with the existance of the 'path' value, as the path can be constructed at runtime by looking at the names in hirachy in the yaml other than those points it looks ok"
+**User Input**: "in aidlc-docs/construction/timeflow/functional-design/business-logic-model.md I noticed that you used python as the code type, is this just in effect pseudo code as the app is to be made in rust for the backend? in aidlc-docs/construction/timeflow/functional-design/domain-entities.md I noticed that for Entity: Category there was a duplication of data with the existence of the 'path' value, as the path can be constructed at runtime by looking at the names in hierarchy in the yaml other than those points it looks ok"
 **AI Response**: Confirmed Python was pseudocode for readability. Updated business-logic-model.md to use language-agnostic pseudocode. Updated domain-entities.md to remove redundant path field from Category entity - path now computed at runtime from tree traversal.
 **Context**: Addressed user feedback, functional design approved
 

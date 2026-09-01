@@ -22,7 +22,7 @@
 • **No fixed sequences**: Stages execute in the order that makes sense for your specific task
 
 ## Your Team's Role:
-• **Answer questions** in dedicated question files using [Answer]: tags with letter choices (A, B, C, D, E)
+• **Answer questions** in dedicated question files using [Answer] tags with letter choices (A, B, C, D, E)
 • **Option E available**: Choose "Other" and describe your custom response if provided options don't match
 • **Work as a team** to review and approve each phase before proceeding
 • **Collectively decide** on architectural approach when needed

@@ -18,9 +18,9 @@ A) No rounding - show exact minutes
 B) Round to nearest 5 minutes
 C) Round to nearest 15 minutes
 D) User-configurable rounding preference
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: A
+[Answer] A
 
 ---
 
@@ -32,9 +32,9 @@ A) 1 minute (no minimum)
 B) 5 minutes minimum
 C) 15 minutes minimum
 D) User-configurable minimum
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: D
+[Answer] D
 default is 1 minute
 
 ---
@@ -46,9 +46,9 @@ Should the app validate that daily time totals make sense?
 A) No validation - allow any total
 B) Warn if total exceeds 24 hours
 C) Warn if total exceeds configurable work day (e.g., 8-10 hours)
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: C
+[Answer] C
 
 ---
 
@@ -59,9 +59,9 @@ When generating ActiTime view, what happens if there are mergeable tasks but no 
 A) Show error - require at least one direct task
 B) Show warning but allow viewing (mergeable time shown as unallocated)
 C) Automatically create an "Unallocated" direct task to receive the time
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: A
+[Answer] A
 
 ---
 
@@ -73,9 +73,9 @@ A) Auto-stop timer and save the task
 B) Pause timer and resume on next app open
 C) Discard timer (user must manually save before closing)
 D) Prompt user to save or discard before closing
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: D
+[Answer] D
 
 ---
 
@@ -86,9 +86,9 @@ What character should separate category hierarchy levels?
 A) Forward slash: "Overhead/People Management/People Care"
 B) Greater than: "Overhead > People Management > People Care"
 C) Dot: "Overhead.People Management.People Care"
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: B
+[Answer] B
 
 ---
 

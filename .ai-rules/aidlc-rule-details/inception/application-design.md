@@ -40,7 +40,7 @@ Application Design focuses on:
 ### 4. Generate Context-Appropriate Questions
 **DIRECTIVE**: Analyze the requirements and stories to generate questions relevant to THIS specific application design. Use the categories below as guidance. Evaluate each category and, when in doubt about applicability, ask the question rather than skipping it — overconfidence leads to poor outcomes (see overconfidence-prevention.md).
 
-- EMBED questions using [Answer]: tag format
+- EMBED questions using [Answer] tag format
 - Focus on ANY ambiguities, missing information, or areas needing clarification
 - Generate questions wherever user input would improve design decisions
 - **When in doubt, ask the question** - overconfidence leads to poor designs
@@ -54,18 +54,18 @@ Application Design focuses on:
 
 ### 5. Store Application Design Plan
 - Save as `aidlc-docs/inception/plans/application-design-plan.md`
-- Include all [Answer]: tags for user input
+- Include all [Answer] tags for user input
 - Ensure plan covers all design aspects
 
 ### 6. Request User Input
-- Ask user to fill [Answer]: tags directly in the plan document
+- Ask user to fill [Answer] tags directly in the plan document
 - Emphasize importance of design decisions
-- Provide clear instructions on completing the [Answer]: tags
+- Provide clear instructions on completing the [Answer] tags
 
 ### 7. Collect Answers
-- Wait for user to provide answers to all questions using [Answer]: tags in the document
-- Do not proceed until ALL [Answer]: tags are completed
-- Review the document to ensure no [Answer]: tags are left blank
+- Wait for user to provide answers to all questions using [Answer] tags in the document
+- Do not proceed until ALL [Answer] tags are completed
+- Review the document to ensure no [Answer] tags are left blank
 
 ### 8. ANALYZE ANSWERS (MANDATORY)
 Before proceeding, you MUST carefully review all user answers for:
@@ -77,7 +77,7 @@ Before proceeding, you MUST carefully review all user answers for:
 
 ### 9. MANDATORY Follow-up Questions
 If the analysis in step 8 reveals ANY ambiguous answers, you MUST:
-- Add specific follow-up questions to the plan document using [Answer]: tags
+- Add specific follow-up questions to the plan document using [Answer] tags
 - DO NOT proceed to approval until all ambiguities are resolved
 - Examples of required follow-ups:
   - "You mentioned 'mix of A and B' - what specific criteria should determine when to use A vs B?"

@@ -22,41 +22,76 @@ A desktop time tracking application built with Rust + Tauri for macOS, designed 
 ## Development Setup
 
 1. Install dependencies:
+
    ```bash
    pnpm install
    ```
 
 2. Run in development mode:
+
    ```bash
    pnpm tauri dev
    ```
 
 3. Build for production:
+
    ```bash
    pnpm tauri build
    ```
 
 ## Project Structure
 
-```
+```text
 timeflow/
-├── src/                    # Frontend (Svelte + TypeScript)
-│   ├── lib/
-│   │   ├── api/           # Tauri command wrappers
-│   │   ├── components/    # UI components
-│   │   └── stores/        # Svelte stores
-│   └── styles/            # Global CSS
-├── src-tauri/             # Backend (Rust)
-│   └── src/
-│       ├── commands/      # Tauri command handlers
-│       ├── models/        # Domain entities
-│       └── services/      # Business logic
-└── aidlc-docs/            # Design documentation
+|-- AGENTS.md              # Agent bootstrap instructions
+|-- CLAUDE.md              # Claude instruction passthrough to AGENTS.md
+|-- README.md              # Project overview and setup guide
+|-- package.json           # Frontend scripts and dependencies
+|-- package-lock.json      # npm dependency lockfile
+|-- index.html             # Vite entry document
+|-- vite.config.ts         # Vite configuration
+|-- svelte.config.js       # Svelte configuration
+|-- tsconfig*.json         # TypeScript configuration
+|-- .ai-rules/             # Core and AIDLC workflow rules
+|   |-- core-workflow-load.md
+|   |-- aidlc-workflow-load.md
+|   |-- core-rules/
+|   `-- aidlc-rule-details/
+|-- aidlc-docs/            # AIDLC project documentation and audit trail
+|   `-- 0.1.0/
+|       |-- aidlc-state.md
+|       |-- audit.md
+|       |-- inception/
+|       `-- construction/
+|-- src/                   # Frontend (Svelte + TypeScript)
+|   |-- App.svelte
+|   |-- main.ts
+|   |-- lib/
+|   |   |-- api/           # Tauri command wrappers and shared types
+|   |   |-- components/    # UI components
+|   |   `-- stores/        # Svelte stores
+|   `-- styles/            # Global CSS and design variables
+|-- src-tauri/             # Backend (Rust + Tauri)
+|   |-- Cargo.toml
+|   |-- Cargo.lock
+|   |-- tauri.conf.json
+|   |-- build.rs
+|   |-- icons/
+|   |-- gen/schemas/       # Generated Tauri schemas
+|   `-- src/
+|       |-- commands/      # Tauri command handlers
+|       |-- models/        # Domain entities
+|       `-- services/      # Business logic and persistence
+|-- .cspell/               # Spell-check word lists
+|-- .cspell.yaml           # Spell-check configuration
+|-- .vscode/               # Editor settings
+`-- dist/                  # Generated frontend build output
 ```
 
 ## Data Storage
 
 TimeFlow stores data in YAML files in the user's data directory:
+
 - `~/.timeflow/tasks/YYYY-MM-DD.yaml` - Daily task files
 - `~/.timeflow/categories.yaml` - Category hierarchy
 - `~/.timeflow/templates.yaml` - Task templates
@@ -77,6 +112,7 @@ TimeFlow stores data in YAML files in the user's data directory:
 ### Distribution Strategies
 
 For mergeable tasks, choose how time is distributed:
+
 - **Proportional**: Based on direct task durations
 - **Even**: Split equally among direct tasks
 - **Manual**: Specify exact percentages
@@ -86,6 +122,6 @@ For mergeable tasks, choose how time is distributed:
 
 The ActiTime view shows merged entries ready to copy to ActiTime, with category paths and total durations.
 
-## License
+## Licence
 
-MIT
+[MIT Licence](LICENSE.md)

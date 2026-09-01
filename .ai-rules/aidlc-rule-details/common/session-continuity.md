@@ -19,7 +19,7 @@ A) Continue where you left off ([Next step description])
 
 B) Review a previous stage ([Show available stages])
 
-[Answer]: 
+[Answer] 
 ```
 
 ## MANDATORY: Session Continuity Instructions

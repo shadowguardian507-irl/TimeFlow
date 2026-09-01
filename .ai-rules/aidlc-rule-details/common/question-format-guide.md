@@ -28,9 +28,9 @@ B) [Second meaningful option]
 
 [...additional options as needed...]
 
-X) Other (please describe after [Answer]: tag below)
+X) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 **CRITICAL**:
@@ -57,9 +57,9 @@ C) Single Sign-On (SSO)
 
 D) Multi-factor authentication
 
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 
 ## Question 2
 Will this be a web or mobile application?
@@ -70,9 +70,9 @@ B) Mobile application
 
 C) Both web and mobile
 
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 
 ## Question 3
 Is this a new project or existing codebase?
@@ -81,13 +81,13 @@ A) New project (greenfield)
 
 B) Existing codebase (brownfield)
 
-C) Other (please describe after [Answer]: tag below)
+C) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 ### User Response Format
-Users will answer by filling in the letter choice after [Answer]: tag:
+Users will answer by filling in the letter choice after [Answer] tag:
 
 ```markdown
 ## Question 1
@@ -101,13 +101,13 @@ C) Single Sign-On (SSO)
 
 D) Multi-factor authentication
 
-[Answer]: C
+[Answer] C
 ```
 
 ### Reading User Responses
 After user confirms completion:
 1. Read the question file
-2. Extract answers after [Answer]: tags
+2. Extract answers after [Answer] tags
 3. Validate all questions are answered
 4. Proceed with analysis based on responses
 
@@ -140,9 +140,9 @@ C) NoSQL Key-Value (Redis, Memcached)
 
 D) Graph Database (Neo4j, Neptune)
 
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 #### Bad Example (Avoid):
@@ -156,7 +156,7 @@ B) No
 
 C) Maybe
 
-[Answer]: 
+[Answer] 
 ```
 
 ### Workflow Integration
@@ -169,7 +169,7 @@ Create aidlc-docs/{phase-name}-questions.md with all questions
 #### Step 2: Inform User
 ```
 "I've created {phase-name}-questions.md with [X] questions. 
-Please answer each question by filling in the letter choice after the [Answer]: tag. 
+Please answer each question by filling in the letter choice after the [Answer] tag. 
 If none of the options match your needs, choose the last option (Other) and describe your preference. Let me know when you're done."
 ```
 
@@ -187,7 +187,7 @@ Proceed with analysis
 ### Error Handling
 
 #### Missing Answers
-If any [Answer]: tag is empty:
+If any [Answer] tag is empty:
 ```
 "I noticed Question [X] is not answered. Please provide an answer using one of the letter choices 
 for all questions before proceeding."
@@ -204,7 +204,7 @@ Please use only the letter choices provided in the question."
 If user provides explanation instead of letter:
 ```
 "For Question [X], please provide the letter choice that best matches your answer. 
-If none match, choose 'Other' and add your description after the [Answer]: tag."
+If none match, choose 'Other' and add your description after the [Answer] tag."
 ```
 
 ### Contradiction and Ambiguity Detection
@@ -253,7 +253,7 @@ C) [Option that provides middle ground]
 
 D) [Option that reframes the question]
 
-[Answer]: 
+[Answer] 
 
 ## Ambiguity 1: [Brief Description]
 Your response to Q[X] ("[Answer]") is ambiguous because [explanation].
@@ -269,7 +269,7 @@ C) [Clear option 3]
 
 D) [Clear option 4]
 
-[Answer]: 
+[Answer] 
 ```
 
 #### Workflow for Clarifications
@@ -311,9 +311,9 @@ A) New project (greenfield)
 
 B) Existing codebase (brownfield)
 
-C) Other (please describe after [Answer]: tag below)
+C) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 #### Example with 3 meaningful options:
@@ -327,9 +327,9 @@ B) On-premises servers
 
 C) Hybrid (both cloud and on-premises)
 
-D) Other (please describe after [Answer]: tag below)
+D) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 #### Example with 4 meaningful options:
@@ -345,9 +345,9 @@ C) Serverless architecture
 
 D) Event-driven architecture
 
-E) Other (please describe after [Answer]: tag below)
+E) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
 
 ## Summary
@@ -357,7 +357,7 @@ E) Other (please describe after [Answer]: tag below)
 - ✅ Always use multiple choice format
 - ✅ **Always include "Other" as the LAST option (MANDATORY)**
 - ✅ Only include meaningful options - don't make up options to fill slots
-- ✅ Always use [Answer]: tags
+- ✅ Always use [Answer] tags
 - ✅ Always wait for user completion
 - ✅ Always validate responses for contradictions
 - ✅ Always create clarification files if needed

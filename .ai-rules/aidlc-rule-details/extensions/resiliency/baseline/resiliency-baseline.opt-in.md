@@ -20,7 +20,7 @@ A) Yes — apply the resiliency baseline as directional best practices and desig
 
 B) No — skip the resiliency baseline (suitable for PoCs, prototypes, and experimental projects where rapid iteration matters more than reliability)
 
-X) Other (please describe after [Answer]: tag below)
+X) Other (please describe after [Answer] tag below)
 
-[Answer]: 
+[Answer] 
 ```
