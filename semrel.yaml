@@ -1,0 +1,13 @@
+initial_version: 0.0.0
+rules:
+  major:
+  - 'breaking:'
+  - breaking change
+  minor:
+  - 'feat:'
+  - 'feature:'
+  patch:
+  - 'fix:'
+  none:
+  - 'chore:'
+  - 'docs:'
