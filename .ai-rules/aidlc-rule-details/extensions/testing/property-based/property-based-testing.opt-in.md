@@ -18,5 +18,5 @@ C) No — skip all PBT rules (suitable for simple CRUD applications, UI-only pro
 
 X) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```

@@ -1,5 +1,6 @@
-# PRIORITY
+#
 
+**PRIORITY:**
 This workflow is second only to .ai-rules/core-workflow-load.md and OVERRIDES all other built-in workflows
 
 When user requests software development, ALWAYS follow this workflow
@@ -56,7 +57,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 - Non-compliance with any applicable enabled extension rule is a **blocking finding** — do NOT present stage completion until resolved
 - When presenting stage completion, include a summary of extension rule compliance (compliant/non-compliant/N/A per rule, with brief rationale for N/A determinations)
 
-**Conditional Enforcement**: Extensions may be conditionally enabled/disabled. See `inception/requirements-analysis.md` for the opt-in mechanism. Before enforcing any extension at ANY stage, check its `Enabled` status in `aidlc-docs/aidlc-state.md` under `## Extension Configuration`. Skip disabled extensions and log the skip in audit.md. Default to enforced if no configuration exists. 
+**Conditional Enforcement**: Extensions may be conditionally enabled/disabled. See `inception/requirements-analysis.md` for the opt-in mechanism. Before enforcing any extension at ANY stage, check its `Enabled` status in `aidlc-docs/aidlc-state.md` under `## Extension Configuration`. Skip disabled extensions and log the skip in audit.md. Default to enforced if no configuration exists.
 
 ## MANDATORY: Content Validation
 
@@ -89,11 +90,11 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 3. This should only be done ONCE at the start of a new workflow
 4. Do NOT load this file in subsequent interactions to save context space
 
-# Adaptive Software Development Workflow
+## Adaptive Software Development Workflow
 
 ---
 
-# INCEPTION PHASE
+## INCEPTION PHASE
 
 **Purpose**: Planning, requirements gathering, and architectural decisions
 
@@ -111,7 +112,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-## Workspace Detection (ALWAYS EXECUTE)
+### Workspace Detection (ALWAYS EXECUTE)
 
 1. **MANDATORY**: Log initial user request in audit.md with complete raw input
 2. Load all steps from `inception/workspace-detection.md`
@@ -125,7 +126,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 6. Present completion message to user (see workspace-detection.md for message formats)
 7. Automatically proceed to next phase
 
-## Reverse Engineering (CONDITIONAL - Brownfield Only)
+### Reverse Engineering (CONDITIONAL - Brownfield Only)
 
 **Execute IF**:
 
@@ -155,7 +156,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 4. **Wait for Explicit Approval**: Present detailed completion message (see reverse-engineering.md for message format) - DO NOT PROCEED until user confirms
 5. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-## Requirements Analysis (ALWAYS EXECUTE - Adaptive Depth)
+### Requirements Analysis (ALWAYS EXECUTE - Adaptive Depth)
 
 **Always executes** but depth varies based on request clarity and complexity:
 
@@ -178,7 +179,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: Follow approval format from requirements-analysis.md detailed steps - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-## User Stories (CONDITIONAL)
+### User Stories (CONDITIONAL)
 
 **INTELLIGENT ASSESSMENT**: Use multi-factor analysis to determine if user stories add value:
 
@@ -255,7 +256,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 9. **Wait for Explicit Approval**: Follow approval format from user-stories.md detailed steps - DO NOT PROCEED until user confirms
 10. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-## Workflow Planning (ALWAYS EXECUTE)
+### Workflow Planning (ALWAYS EXECUTE)
 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `inception/workflow-planning.md`
@@ -274,7 +275,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 7. **Wait for Explicit Approval**: Present recommendations using language from workflow-planning.md Step 9, emphasising user control to override recommendations - DO NOT PROCEED until user confirms
 8. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-## Application Design (CONDITIONAL)
+### Application Design (CONDITIONAL)
 
 **Execute IF**:
 
@@ -298,7 +299,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: Present detailed completion message (see application-design.md for message format) - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-## Units Generation (CONDITIONAL)
+### Units Generation (CONDITIONAL)
 
 **Execute IF**:
 
@@ -323,7 +324,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-# 🟢 CONSTRUCTION PHASE
+## 🟢 CONSTRUCTION PHASE
 
 **Purpose**: Detailed design, NFR implementation, and code generation
 
@@ -343,11 +344,11 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-## Per-Unit Loop (Executes for Each Unit)
+### Per-Unit Loop (Executes for Each Unit)
 
 **For each unit of work, execute the following stages in sequence:**
 
-### Functional Design (CONDITIONAL, per-unit)
+#### Functional Design (CONDITIONAL, per-unit)
 
 **Execute IF**:
 
@@ -369,7 +370,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-### NFR Requirements (CONDITIONAL, per-unit)
+#### NFR Requirements (CONDITIONAL, per-unit)
 
 **Execute IF**:
 
@@ -392,7 +393,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-### NFR Design (CONDITIONAL, per-unit)
+#### NFR Design (CONDITIONAL, per-unit)
 
 **Execute IF**:
 
@@ -413,7 +414,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-### Infrastructure Design (CONDITIONAL, per-unit)
+#### Infrastructure Design (CONDITIONAL, per-unit)
 
 **Execute IF**:
 
@@ -435,9 +436,9 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 5. **Wait for Explicit Approval**: User must choose between "Request Changes" or "Continue to Next Stage" - DO NOT PROCEED until user confirms
 6. **MANDATORY**: Log user's response in audit.md with complete raw input
 
-### Code Generation (ALWAYS EXECUTE, per-unit)
+#### Code Generation (ALWAYS EXECUTE, per-unit)
 
-**Always executes for each unit**
+**Always executes for each unit:**
 
 **Code Generation has two parts within one stage**:
 
@@ -456,7 +457,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-## Build and Test (ALWAYS EXECUTE)
+### Build and Test (ALWAYS EXECUTE)
 
 1. **MANDATORY**: Log any user input during this phase in audit.md
 2. Load all steps from `construction/build-and-test.md`
@@ -472,7 +473,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-# 🟡 OPERATIONS PHASE
+## 🟡 OPERATIONS PHASE
 
 **Purpose**: Placeholder for future deployment and monitoring workflows
 
@@ -484,7 +485,7 @@ All subsequent rule detail file references (e.g., `common/process-overview.md`, 
 
 ---
 
-## Operations (PLACEHOLDER)
+### Operations (PLACEHOLDER)
 
 **Status**: This stage is currently a placeholder for future expansion.
 
@@ -498,7 +499,7 @@ The Operations stage will eventually include:
 
 **Current State**: All build and test activities are handled in the CONSTRUCTION phase.
 
-## Key Principles
+### Key Principles
 
 - **Adaptive Execution**: Only execute stages that add value
 - **Transparent Planning**: Always show execution plan before starting
@@ -512,22 +513,22 @@ The Operations stage will eventually include:
 - **Content Validation**: Always validate content before file creation per content-validation.md rules
 - **NO EMERGENT BEHAVIOUR**: Construction phases MUST use standardised 2-option completion messages as defined in their respective rule files. DO NOT create 3-option menus or other emergent navigation patterns.
 
-## MANDATORY: Plan-Level Checkbox Enforcement
+### MANDATORY: Plan-Level Checkbox Enforcement
 
-### MANDATORY RULES FOR PLAN EXECUTION
+#### MANDATORY RULES FOR PLAN EXECUTION
 
 1. **NEVER complete any work without updating plan checkboxes**
 2. **IMMEDIATELY after completing ANY step described in a plan file, mark that step [x]**
 3. **This must happen in the SAME interaction where the work is completed**
 4. **NO EXCEPTIONS**: Every plan step completion MUST be tracked with checkbox updates
 
-### Two-Level Checkbox Tracking System
+#### Two-Level Checkbox Tracking System
 
 - **Plan-Level**: Track detailed execution progress within each stage
 - **Stage-Level**: Track overall workflow progress in aidlc-state.md
 - **Update immediately**: All progress updates in SAME interaction where work is completed
 
-## Prompts Logging Requirements
+### Prompts Logging Requirements
 
 - **MANDATORY**: Log EVERY user input (prompts, questions, responses) with timestamp in audit.md
 - **MANDATORY**: Capture user's COMPLETE RAW INPUT exactly as provided (never summarise)
@@ -538,7 +539,7 @@ The Operations stage will eventually include:
 - Use ISO 8601 format for timestamps (YYYY-MM-DDTHH:MM:SSZ)
 - Include stage context for each entry
 
-### Audit Log Format:
+#### Audit Log Format
 
 ```markdown
 ## [Stage Name or Interaction Type]
@@ -550,7 +551,7 @@ The Operations stage will eventually include:
 ---
 ```
 
-### Correct Tool Usage for audit.md
+#### Correct Tool Usage for audit.md
 
 ✅ CORRECT:
 
@@ -562,14 +563,14 @@ The Operations stage will eventually include:
 1. Read the audit.md file
 2. Completely overwrite the audit.md with the contents of what you read, plus the new changes you want to add to it
 
-## Directory Structure
+### Directory Structure
 
 ```text
 <WORKSPACE-ROOT>/                          # ⚠️ APPLICATION CODE HERE
 ├── [project-specific structure]           # Varies by project (see code-generation.md)
 │
 ├── aidlc-docs/                            # 📄 DOCUMENTATION ONLY
-|    ├── <WORK-ITEM>                       # This folder keeps each AIDLC work block separate 
+|    ├── <WORK-ITEM>                       # This folder keeps each AIDLC work block separate
 │    │     ├── inception/                  # 🔵 INCEPTION PHASE
 │    │     ├── plans/
 │    │     │   ├── reverse-engineering/    # Brownfield only

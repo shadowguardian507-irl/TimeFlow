@@ -22,5 +22,5 @@ B) No — skip the resiliency baseline (suitable for PoCs, prototypes, and exper
 
 X) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```

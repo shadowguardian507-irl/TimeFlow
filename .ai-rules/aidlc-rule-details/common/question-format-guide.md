@@ -30,7 +30,7 @@ B) [Second meaningful option]
 
 X) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **CRITICAL**:
@@ -59,7 +59,7 @@ D) Multi-factor authentication
 
 E) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 
 ## Question 2
 Will this be a web or mobile application?
@@ -72,7 +72,7 @@ C) Both web and mobile
 
 D) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 
 ## Question 3
 Is this a new project or existing codebase?
@@ -83,7 +83,7 @@ B) Existing codebase (brownfield)
 
 C) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 ### User Response Format
@@ -142,7 +142,7 @@ D) Graph Database (Neo4j, Neptune)
 
 E) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 #### Bad Example (Avoid):
@@ -156,7 +156,7 @@ B) No
 
 C) Maybe
 
-[Answer] 
+[Answer]
 ```
 
 ### Workflow Integration
@@ -168,8 +168,8 @@ Create aidlc-docs/{phase-name}-questions.md with all questions
 
 #### Step 2: Inform User
 ```
-"I've created {phase-name}-questions.md with [X] questions. 
-Please answer each question by filling in the letter choice after the [Answer] tag. 
+"I've created {phase-name}-questions.md with [X] questions.
+Please answer each question by filling in the letter choice after the [Answer] tag.
 If none of the options match your needs, choose the last option (Other) and describe your preference. Let me know when you're done."
 ```
 
@@ -189,21 +189,21 @@ Proceed with analysis
 #### Missing Answers
 If any [Answer] tag is empty:
 ```
-"I noticed Question [X] is not answered. Please provide an answer using one of the letter choices 
+"I noticed Question [X] is not answered. Please provide an answer using one of the letter choices
 for all questions before proceeding."
 ```
 
 #### Invalid Answers
 If answer is not a valid letter choice:
 ```
-"Question [X] has an invalid answer '[answer]'. 
+"Question [X] has an invalid answer '[answer]'.
 Please use only the letter choices provided in the question."
 ```
 
 #### Ambiguous Answers
 If user provides explanation instead of letter:
 ```
-"For Question [X], please provide the letter choice that best matches your answer. 
+"For Question [X], please provide the letter choice that best matches your answer.
 If none match, choose 'Other' and add your description after the [Answer] tag."
 ```
 
@@ -253,7 +253,7 @@ C) [Option that provides middle ground]
 
 D) [Option that reframes the question]
 
-[Answer] 
+[Answer]
 
 ## Ambiguity 1: [Brief Description]
 Your response to Q[X] ("[Answer]") is ambiguous because [explanation].
@@ -269,7 +269,7 @@ C) [Clear option 3]
 
 D) [Clear option 4]
 
-[Answer] 
+[Answer]
 ```
 
 #### Workflow for Clarifications
@@ -313,7 +313,7 @@ B) Existing codebase (brownfield)
 
 C) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 #### Example with 3 meaningful options:
@@ -329,7 +329,7 @@ C) Hybrid (both cloud and on-premises)
 
 D) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 #### Example with 4 meaningful options:
@@ -347,12 +347,12 @@ D) Event-driven architecture
 
 E) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 ## Summary
 
-**Remember**: 
+**Remember**:
 - ✅ Always create question files
 - ✅ Always use multiple choice format
 - ✅ **Always include "Other" as the LAST option (MANDATORY)**

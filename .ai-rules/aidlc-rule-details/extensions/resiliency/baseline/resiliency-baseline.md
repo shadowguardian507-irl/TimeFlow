@@ -1,7 +1,7 @@
 # Baseline Resiliency Rules
 
 ## Overview
-These resiliency rules are MANDATORY cross-cutting constraints that apply across all AI-DLC phases. They are derived from established cloud reliability frameworks (such as the AWS Well-Architected Reliability Pillar and 
+These resiliency rules are MANDATORY cross-cutting constraints that apply across all AI-DLC phases. They are derived from established cloud reliability frameworks (such as the AWS Well-Architected Reliability Pillar and
 resilience best practices) and apply to workloads on any cloud provider. The rules are organized across six pillars: Business Goals, Change Management & Automation, Integrated Observability, High Availability, Disaster Recovery, and Continuous Improvement.
 
 **Enforcement**: At each applicable stage, the model MUST verify compliance with these rules before presenting the stage completion message to the user.
@@ -91,7 +91,7 @@ E) N/A — Single-region deployment is acceptable, no cross-region DR needed. Re
 
 X) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 The user's selected RTO/RPO targets MUST be documented in the requirements output and propagated to all downstream stages (Application Design, NFR Requirements, NFR Design, Infrastructure Design).
@@ -120,7 +120,7 @@ C) N/A — this workload is exempt from formal change management (e.g., internal
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **Verification**:
@@ -152,7 +152,7 @@ B) No pipeline exists — AI-DLC should propose a CI/CD pipeline definition appr
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 
 ## Question: Rollback Mechanism
 How should a failed production deployment be rolled back?
@@ -169,7 +169,7 @@ E) Use our organization's existing rollback procedure — provide reference
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 
 ## Question: Deployment Style
 What deployment strategy is acceptable for this workload's risk profile?
@@ -184,7 +184,7 @@ D) Canary (progressive traffic shift with automated rollback)
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **Verification**:
@@ -276,7 +276,7 @@ C) Multi-region active-active — survives region failure with no downtime. High
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **Verification**:
@@ -403,7 +403,7 @@ C) Defer to the Operations phase — capture test scenarios now, execute during 
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **Verification**:
@@ -431,7 +431,7 @@ B) No formal process exists — AI-DLC should propose a lightweight incident res
 
 X) Other (describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
 
 **Verification**:

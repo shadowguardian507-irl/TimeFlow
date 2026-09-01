@@ -16,5 +16,5 @@ B) No — skip all SECURITY rules (suitable for PoCs, prototypes, and experiment
 
 X) Other (please describe after [Answer] tag below)
 
-[Answer] 
+[Answer]
 ```
