@@ -4,10 +4,12 @@ behaviour
 centralised
 colour
 emphasising
+initialisation
 licence
 optimised
 prioritise
 reorganise
+serialisation
 standardisation
 standardise
 standardised
