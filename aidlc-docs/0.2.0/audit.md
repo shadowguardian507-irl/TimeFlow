@@ -115,3 +115,15 @@ Svelte 5's `mount(App, { target })` API in `src/main.ts`.
 component was never mounted, leaving the Tauri window blank.
 
 ---
+
+## DEVELOPMENT - Svelte Accessibility Warning Remediation
+
+**Timestamp**: 2026-09-01T11:03:16Z
+**User Input**: "please can you resolve the following [Svelte warnings for
+unassociated labels, unused TimerWidget currentDate export, and clickable modal overlay div]"
+**AI Response**: Replaced non-associated labels with labelled groups, converted the
+task form overlay click target into a backdrop button, added an accessible label for
+category search, and removed the unused TimerWidget date prop and parent binding.
+**Context**: `pnpm run build` completes successfully without the reported Svelte warnings.
+
+---

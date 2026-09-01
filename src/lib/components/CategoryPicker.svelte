@@ -4,6 +4,7 @@
   export let categories: Category | null = null;
   export let value: string = '';
   export let showHidden: boolean = false;
+  export let ariaLabel: string = 'Category';
 
   let expanded: Set<string> = new Set();
   let searchQuery = '';
@@ -45,6 +46,7 @@
     type="text"
     class="search-input"
     placeholder="Search categories..."
+    aria-label={`${ariaLabel} search`}
     bind:value={searchQuery}
   />
 

@@ -71,7 +71,7 @@
 
 <div class="time-entry-view" data-testid="time-entry-view">
   <div class="top-section">
-    <TimerWidget {currentDate} on:taskCreated={handleFormSave} />
+    <TimerWidget on:taskCreated={handleFormSave} />
     <DailySummary tasks={$tasks} />
   </div>
 

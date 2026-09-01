@@ -3,8 +3,6 @@
   import { timerStore } from '../stores/timer';
   import type { TaskType, DistributionStrategy } from '../api/types';
 
-  export let currentDate: string;
-
   const dispatch = createEventDispatcher<{ taskCreated: void }>();
 
   let taskName = '';

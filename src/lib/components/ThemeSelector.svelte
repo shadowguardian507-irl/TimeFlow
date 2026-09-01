@@ -19,10 +19,11 @@
 </script>
 
 <div class="theme-selector" data-testid="theme-selector">
-  <label class="label">Theme</label>
-  <div class="theme-options">
+  <span id="theme-selector-label" class="label">Theme</span>
+  <div class="theme-options" role="group" aria-labelledby="theme-selector-label">
     {#each themes as theme}
       <button
+        type="button"
         class="theme-option"
         class:selected={currentTheme === theme.value}
         on:click={() => selectTheme(theme.value)}

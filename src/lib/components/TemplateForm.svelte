@@ -109,11 +109,14 @@
     </div>
 
     <div class="form-group">
-      <label>Category *</label>
-      <CategoryPicker
-        categories={$categories}
-        bind:value={categoryPath}
-      />
+      <span id="template-category-label" class="field-label">Category *</span>
+      <div role="group" aria-labelledby="template-category-label">
+        <CategoryPicker
+          categories={$categories}
+          bind:value={categoryPath}
+          ariaLabel="Template category"
+        />
+      </div>
     </div>
 
     {#if isMergeable}
@@ -171,7 +174,8 @@
     gap: 1rem;
   }
 
-  label {
+  label,
+  .field-label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.875rem;

@@ -89,8 +89,15 @@
   }
 </script>
 
-<div class="modal-overlay" on:click|self={handleCancel} data-testid="task-form-overlay">
-  <div class="task-form" data-testid="task-entry-form">
+<div class="modal-overlay" data-testid="task-form-overlay">
+  <button
+    type="button"
+    class="modal-backdrop"
+    aria-label="Close task form"
+    on:click={handleCancel}
+  ></button>
+
+  <div class="task-form" role="dialog" aria-modal="true" data-testid="task-entry-form">
     <h3>{isEdit ? 'Edit Task' : 'Add Task'}</h3>
 
     {#if error}
@@ -147,11 +154,14 @@
       </div>
 
       <div class="form-group">
-        <label>Category *</label>
-        <CategoryPicker
-          categories={$categories}
-          bind:value={categoryPath}
-        />
+        <span id="task-category-label" class="field-label">Category *</span>
+        <div role="group" aria-labelledby="task-category-label">
+          <CategoryPicker
+            categories={$categories}
+            bind:value={categoryPath}
+            ariaLabel="Task category"
+          />
+        </div>
       </div>
 
       {#if taskType === 'mergeable'}
@@ -189,7 +199,17 @@
     z-index: 100;
   }
 
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
   .task-form {
+    position: relative;
+    z-index: 1;
     background: var(--bg-primary);
     border-radius: 12px;
     padding: 1.5rem;
@@ -222,7 +242,8 @@
     gap: 1rem;
   }
 
-  label {
+  label,
+  .field-label {
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
