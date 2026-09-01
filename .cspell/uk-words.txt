@@ -1,11 +1,14 @@
 analyse
 artefacts
 behaviour
+centralised
 colour
 emphasising
 licence
 optimised
 prioritise
+reorganise
+standardisation
 standardise
 standardised
 summarise
