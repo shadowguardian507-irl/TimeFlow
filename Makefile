@@ -4,11 +4,12 @@ CSPELL ?= cspell
 SPELL_SOURCES ?= README.md AGENTS.md CLAUDE.md .ai-rules aidlc-docs src src-tauri package.json svelte.config.js vite.config.ts tsconfig.json tsconfig.node.json
 CARGO_AUDIT ?= cargo audit
 RUST_LOCKFILE ?= src-tauri/Cargo.lock
+VERSION_SYNC ?= node scripts/sync-version.mjs
 PNPM_AUDIT_LEVEL ?= low
 PNPM_AUDIT_ARGS ?=
 CARGO_AUDIT_ARGS ?=
 
-.PHONY: help check-spelling spell-check check-cspell sort-cspell-dictionaries sort-dictionaries audit audit-rust audit-js security security-rust security-js check-cargo-audit clean dev-arch dev-mac
+.PHONY: help check-spelling spell-check check-cspell sort-cspell-dictionaries sort-dictionaries version-check version-set audit audit-rust audit-js security security-rust security-js check-cargo-audit clean dev-arch dev-mac
 
 help: ## Show this help list.
 	@awk 'BEGIN {FS = ":.*## "; printf "Available targets:\n"} /^[a-zA-Z0-9_-]+:.*## / {printf "  %-28s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -30,6 +31,13 @@ sort-cspell-dictionaries: ## Alphabetically sort dictionary files under .cspell/
 	@echo "Sorted .cspell dictionary files."
 
 sort-dictionaries: sort-cspell-dictionaries ## Alias for sort-cspell-dictionaries.
+
+version-check: ## Verify app versions match across package.json, Cargo.toml, Tauri config, and Cargo.lock.
+	$(VERSION_SYNC) check
+
+version-set: ## Set app versions across manifests. Usage: make version-set VERSION=1.2.3
+	@test -n "$(VERSION)" || { echo "Usage: make version-set VERSION=1.2.3"; exit 2; }
+	$(VERSION_SYNC) set "$(VERSION)"
 
 audit: audit-rust audit-js ## Run dependency security audits for Rust and JavaScript/TypeScript packages.
 
