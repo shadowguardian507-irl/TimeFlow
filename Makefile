@@ -3,7 +3,7 @@
 CSPELL ?= cspell
 SPELL_SOURCES ?= README.md AGENTS.md CLAUDE.md .ai-rules aidlc-docs src src-tauri package.json svelte.config.js vite.config.ts tsconfig.json tsconfig.node.json
 
-.PHONY: help check-spelling spell-check check-cspell sort-cspell-dictionaries sort-dictionaries
+.PHONY: help check-spelling spell-check check-cspell sort-cspell-dictionaries sort-dictionaries clean dev-arch dev-mac
 
 help: ## Show this help list.
 	@awk 'BEGIN {FS = ":.*## "; printf "Available targets:\n"} /^[a-zA-Z0-9_-]+:.*## / {printf "  %-28s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -25,3 +25,16 @@ sort-cspell-dictionaries: ## Alphabetically sort dictionary files under .cspell/
 	@echo "Sorted .cspell dictionary files."
 
 sort-dictionaries: sort-cspell-dictionaries ## Alias for sort-cspell-dictionaries.
+
+clean: ## Remove installed frontend dependencies, Rust build output, and Vite output.
+	@rm -rf node_modules
+	@rm -rf src-tauri/target
+	@rm -rf dist
+
+dev-arch: ## Start the Tauri desktop app in development mode on Arch Linux.
+	@if [ ! -d node_modules ]; then pnpm install; fi
+	@exec env __NV_DISABLE_EXPLICIT_SYNC=1 pnpm run tauri dev
+
+dev-mac: ## Start the Tauri desktop app in development mode on macOS.
+	@if [ ! -d node_modules ]; then pnpm install; fi
+	@exec env pnpm run tauri dev
