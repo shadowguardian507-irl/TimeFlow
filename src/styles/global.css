@@ -91,12 +91,12 @@ button, [role="button"] {
 }
 
 /* Smooth transitions for theme changes */
-body, 
+body,
 .layout,
 .sidebar,
 .main-content,
 .dialog {
-  transition: background-color var(--transition-slow), 
+  transition: background-color var(--transition-slow),
               color var(--transition-slow),
               border-color var(--transition-slow);
 }

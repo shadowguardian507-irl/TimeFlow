@@ -19,7 +19,7 @@
     </div>
   {:else}
     {#each tasks as task (task.id)}
-      <TaskItem 
+      <TaskItem
         {task}
         on:edit={() => dispatch('edit', task)}
         on:delete={() => dispatch('delete', task)}

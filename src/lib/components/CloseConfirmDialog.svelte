@@ -14,12 +14,12 @@
     const hours = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
-    
+
     const parts = [];
     if (hours > 0) parts.push(`${hours}h`);
     if (mins > 0) parts.push(`${mins}m`);
     parts.push(`${secs}s`);
-    
+
     return parts.join(' ');
   }
 </script>
@@ -50,21 +50,21 @@
     <p class="question">What would you like to do?</p>
 
     <div class="actions">
-      <button 
+      <button
         class="save-btn"
         on:click={() => dispatch('save')}
         data-testid="close-save-btn"
       >
         💾 Save & Close
       </button>
-      <button 
+      <button
         class="discard-btn"
         on:click={() => dispatch('discard')}
         data-testid="close-discard-btn"
       >
         🗑️ Discard & Close
       </button>
-      <button 
+      <button
         class="cancel-btn"
         on:click={() => dispatch('cancel')}
         data-testid="close-cancel-btn"

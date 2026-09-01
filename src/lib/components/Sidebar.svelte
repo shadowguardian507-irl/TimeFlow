@@ -38,7 +38,7 @@
       <span class="version">v{version}</span>
     {/if}
   </div>
-  
+
   <nav class="nav">
     {#each menuItems as item}
       <button

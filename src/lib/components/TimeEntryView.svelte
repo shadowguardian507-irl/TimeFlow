@@ -78,7 +78,7 @@
   <div class="task-section">
     <div class="section-header">
       <h3>Tasks</h3>
-      <button 
+      <button
         class="add-btn"
         on:click={handleAddTask}
         data-testid="time-entry-add-task"
@@ -87,7 +87,7 @@
       </button>
     </div>
 
-    <TaskList 
+    <TaskList
       tasks={$tasks}
       on:edit={handleEditTask}
       on:delete={handleDeleteTask}

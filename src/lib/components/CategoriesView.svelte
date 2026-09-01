@@ -59,14 +59,14 @@
   </div>
 
   {#if showForm}
-    <CategoryForm 
+    <CategoryForm
       {parentPath}
       on:save={handleFormSave}
       on:cancel={handleFormCancel}
     />
   {/if}
 
-  <CategoryTree 
+  <CategoryTree
     categories={$categories}
     {showHidden}
     on:add={handleAddChild}

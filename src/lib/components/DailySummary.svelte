@@ -11,7 +11,7 @@
   $: mergeableMinutes = tasks
     .filter(t => t.task_type === 'mergeable')
     .reduce((sum, t) => sum + t.duration_minutes, 0);
-  
+
   $: totalHours = totalMinutes / 60;
   $: workDayHours = $settings?.work_day_hours ?? 8;
   $: exceedsWorkDay = totalHours > workDayHours;
@@ -29,7 +29,7 @@
 
 <div class="daily-summary" data-testid="daily-summary">
   <h4>Today's Summary</h4>
-  
+
   <div class="stat total">
     <span class="label">Total Time</span>
     <span class="value">{formatTime(totalMinutes)}</span>

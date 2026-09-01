@@ -35,7 +35,7 @@
         <div class="tree-node">
           <div class="node-row" class:hidden={child.hidden}>
             {#if child.children.length > 0}
-              <button 
+              <button
                 class="expand-btn"
                 on:click={() => toggleExpand(childPath)}
                 aria-label={expanded.has(childPath) ? 'Collapse' : 'Expand'}
@@ -45,14 +45,14 @@
             {:else}
               <span class="expand-placeholder"></span>
             {/if}
-            
+
             <span class="node-name">
               {child.name}
               {#if child.hidden}<span class="hidden-badge">hidden</span>{/if}
             </span>
 
             <div class="node-actions">
-              <button 
+              <button
                 class="action-btn"
                 on:click={() => dispatch('add', childPath)}
                 title="Add subcategory"
@@ -60,7 +60,7 @@
                 +
               </button>
               {#if child.hidden}
-                <button 
+                <button
                   class="action-btn"
                   on:click={() => dispatch('unhide', childPath)}
                   title="Show category"
@@ -68,7 +68,7 @@
                   👁
                 </button>
               {:else}
-                <button 
+                <button
                   class="action-btn"
                   on:click={() => dispatch('hide', childPath)}
                   title="Hide category"
@@ -87,7 +87,7 @@
                   <div class="tree-node">
                     <div class="node-row" class:hidden={grandchild.hidden}>
                       {#if grandchild.children.length > 0}
-                        <button 
+                        <button
                           class="expand-btn"
                           on:click={() => toggleExpand(grandchildPath)}
                         >
@@ -96,14 +96,14 @@
                       {:else}
                         <span class="expand-placeholder"></span>
                       {/if}
-                      
+
                       <span class="node-name">
                         {grandchild.name}
                         {#if grandchild.hidden}<span class="hidden-badge">hidden</span>{/if}
                       </span>
 
                       <div class="node-actions">
-                        <button 
+                        <button
                           class="action-btn"
                           on:click={() => dispatch('add', grandchildPath)}
                           title="Add subcategory"
@@ -111,14 +111,14 @@
                           +
                         </button>
                         {#if grandchild.hidden}
-                          <button 
+                          <button
                             class="action-btn"
                             on:click={() => dispatch('unhide', grandchildPath)}
                           >
                             👁
                           </button>
                         {:else}
-                          <button 
+                          <button
                             class="action-btn"
                             on:click={() => dispatch('hide', grandchildPath)}
                           >
@@ -141,14 +141,14 @@
                               </span>
                               <div class="node-actions">
                                 {#if leaf.hidden}
-                                  <button 
+                                  <button
                                     class="action-btn"
                                     on:click={() => dispatch('unhide', leafPath)}
                                   >
                                     👁
                                   </button>
                                 {:else}
-                                  <button 
+                                  <button
                                     class="action-btn"
                                     on:click={() => dispatch('hide', leafPath)}
                                   >

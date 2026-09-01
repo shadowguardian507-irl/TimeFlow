@@ -1,6 +1,7 @@
 <script lang="ts">
   import { settingsStore, settings } from '../stores/settings';
   import type { Theme } from '../api/types';
+  import { applyTheme } from '../theme';
 
   const themes: { value: Theme; label: string; icon: string }[] = [
     { value: 'light', label: 'Light', icon: '☀️' },
@@ -15,23 +16,13 @@
     applyTheme(theme);
   }
 
-  function applyTheme(theme: Theme) {
-    const root = document.documentElement;
-    
-    if (theme === 'system') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
-    } else {
-      root.setAttribute('data-theme', theme);
-    }
-  }
 </script>
 
 <div class="theme-selector" data-testid="theme-selector">
   <label class="label">Theme</label>
   <div class="theme-options">
     {#each themes as theme}
-      <button 
+      <button
         class="theme-option"
         class:selected={currentTheme === theme.value}
         on:click={() => selectTheme(theme.value)}

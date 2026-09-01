@@ -33,19 +33,19 @@
 
 <div class="layout" data-testid="app-layout">
   <Sidebar {currentView} on:viewChange={handleViewChange} />
-  
+
   <main class="main-content">
-    <Header 
-      {currentView} 
-      {currentDate} 
+    <Header
+      {currentView}
+      {currentDate}
       on:dateChange={handleDateChange}
       on:viewChange={handleViewChange}
     />
-    
+
     <div class="content">
       {#if currentView === 'time-entry'}
-        <TimeEntryView 
-          {currentDate} 
+        <TimeEntryView
+          {currentDate}
           {selectedTemplate}
           on:templateUsed={handleTemplateUsed}
         />

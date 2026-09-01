@@ -62,14 +62,14 @@
   </div>
 
   {#if showForm}
-    <TemplateForm 
+    <TemplateForm
       template={editingTemplate}
       on:save={handleFormSave}
       on:cancel={handleFormCancel}
     />
   {/if}
 
-  <TemplateList 
+  <TemplateList
     templates={$templates}
     on:apply={handleApply}
     on:edit={handleEdit}

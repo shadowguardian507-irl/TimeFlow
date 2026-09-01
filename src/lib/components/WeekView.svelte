@@ -97,7 +97,7 @@
   {:else if view}
     <div class="week-grid">
       {#each view.days as day}
-        <button 
+        <button
           class="day-card"
           class:today={isToday(day.date)}
           class:selected={isSelected(day.date)}

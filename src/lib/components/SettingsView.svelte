@@ -51,7 +51,7 @@
     // In a real app, this would open a file picker
     const path = prompt('Enter backup file path:');
     if (!path) return;
-    
+
     try {
       const result = await api.importBackup(path);
       message = `Imported: ${result.templates_count} templates`;
@@ -66,7 +66,7 @@
     if (!startDate) return;
     const endDate = prompt('End date (YYYY-MM-DD):');
     if (!endDate) return;
-    
+
     try {
       const path = await api.exportCsv(startDate, endDate);
       message = `CSV exported to: ${path}`;
@@ -92,14 +92,14 @@
 
   <div class="settings-section">
     <h3>Time Tracking</h3>
-    
+
     <div class="setting-row">
       <div class="setting-info">
         <label for="minDuration">Minimum Task Duration</label>
         <p class="description">Tasks must be at least this many minutes</p>
       </div>
       <div class="setting-control">
-        <input 
+        <input
           id="minDuration"
           type="number"
           bind:value={minimumTaskDuration}
@@ -116,7 +116,7 @@
         <p class="description">Show warning when daily time exceeds this</p>
       </div>
       <div class="setting-control">
-        <input 
+        <input
           id="workDay"
           type="number"
           bind:value={workDayHours}
@@ -151,7 +151,7 @@
 
   <div class="settings-section">
     <h3>Data Management</h3>
-    
+
     <div class="data-actions">
       <button class="action-btn" on:click={handleExportBackup}>
         📦 Export Backup

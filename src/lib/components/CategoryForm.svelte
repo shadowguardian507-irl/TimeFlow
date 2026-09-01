@@ -47,7 +47,7 @@
   <form on:submit|preventDefault={handleSubmit}>
     <div class="form-group">
       <label for="categoryName">Category Name</label>
-      <input 
+      <input
         id="categoryName"
         type="text"
         bind:value={name}

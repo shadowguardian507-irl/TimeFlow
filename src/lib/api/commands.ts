@@ -182,6 +182,14 @@ export async function isFirstRun(): Promise<boolean> {
   return invoke('is_first_run');
 }
 
+export async function hasLegacyData(): Promise<boolean> {
+  return invoke('has_legacy_data');
+}
+
+export async function importLegacyData(): Promise<void> {
+  return invoke('import_legacy_data');
+}
+
 export async function completeFirstRun(initialSettings: Settings): Promise<Settings> {
   return invoke('complete_first_run', { initialSettings });
 }

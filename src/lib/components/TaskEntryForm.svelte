@@ -101,8 +101,8 @@
       {#if !isEdit && $templates.length > 0}
         <div class="form-group">
           <label for="template">From Template</label>
-          <select 
-            id="template" 
+          <select
+            id="template"
             bind:value={selectedTemplate}
             on:change={handleTemplateSelect}
           >
@@ -116,7 +116,7 @@
 
       <div class="form-group">
         <label for="name">Task Name *</label>
-        <input 
+        <input
           id="name"
           type="text"
           bind:value={name}
@@ -128,7 +128,7 @@
       <div class="form-row">
         <div class="form-group">
           <label for="duration">Duration (minutes) *</label>
-          <input 
+          <input
             id="duration"
             type="number"
             bind:value={durationMinutes}
@@ -148,7 +148,7 @@
 
       <div class="form-group">
         <label>Category *</label>
-        <CategoryPicker 
+        <CategoryPicker
           categories={$categories}
           bind:value={categoryPath}
         />

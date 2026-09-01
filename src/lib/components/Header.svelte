@@ -5,7 +5,7 @@
   export let currentView: string;
   export let currentDate: string;
 
-  const dispatch = createEventDispatcher<{ 
+  const dispatch = createEventDispatcher<{
     dateChange: string;
     viewChange: string;
   }>();
@@ -36,16 +36,16 @@
   <div class="header-left">
     <h2>{viewTitles[currentView] || 'TimeFlow'}</h2>
   </div>
-  
+
   <div class="header-center">
     {#if currentView === 'time-entry' || currentView === 'actitime'}
       <DateSelector value={currentDate} on:change={handleDateChange} />
     {/if}
   </div>
-  
+
   <div class="header-right">
     {#if currentView === 'time-entry' || currentView === 'actitime'}
-      <button 
+      <button
         class="view-toggle"
         on:click={toggleView}
         data-testid="header-view-toggle"

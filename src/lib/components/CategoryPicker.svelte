@@ -41,7 +41,7 @@
 </script>
 
 <div class="category-picker" data-testid="category-picker">
-  <input 
+  <input
     type="text"
     class="search-input"
     placeholder="Search categories..."
@@ -61,13 +61,13 @@
         {@const childPath = child.name}
         {#if (showHidden || !child.hidden) && (matchesSearch(child.name) || hasVisibleChildren(child, ''))}
           <div class="tree-node">
-            <div 
+            <div
               class="node-row"
               class:selected={value === childPath}
               class:hidden={child.hidden}
             >
               {#if child.children.length > 0}
-                <button 
+                <button
                   type="button"
                   class="expand-btn"
                   on:click={() => toggleExpand(childPath)}
@@ -77,7 +77,7 @@
               {:else}
                 <span class="expand-placeholder"></span>
               {/if}
-              <button 
+              <button
                 type="button"
                 class="node-name"
                 on:click={() => selectCategory(childPath)}
@@ -93,13 +93,13 @@
                   {@const grandchildPath = buildPath(childPath, grandchild.name)}
                   {#if (showHidden || !grandchild.hidden) && (matchesSearch(grandchild.name) || hasVisibleChildren(grandchild, childPath))}
                     <div class="tree-node">
-                      <div 
+                      <div
                         class="node-row"
                         class:selected={value === grandchildPath}
                         class:hidden={grandchild.hidden}
                       >
                         {#if grandchild.children.length > 0}
-                          <button 
+                          <button
                             type="button"
                             class="expand-btn"
                             on:click={() => toggleExpand(grandchildPath)}
@@ -109,7 +109,7 @@
                         {:else}
                           <span class="expand-placeholder"></span>
                         {/if}
-                        <button 
+                        <button
                           type="button"
                           class="node-name"
                           on:click={() => selectCategory(grandchildPath)}
@@ -124,13 +124,13 @@
                           {#each grandchild.children as leaf}
                             {@const leafPath = buildPath(grandchildPath, leaf.name)}
                             {#if (showHidden || !leaf.hidden) && matchesSearch(leaf.name)}
-                              <div 
+                              <div
                                 class="node-row leaf"
                                 class:selected={value === leafPath}
                                 class:hidden={leaf.hidden}
                               >
                                 <span class="expand-placeholder"></span>
-                                <button 
+                                <button
                                   type="button"
                                   class="node-name"
                                   on:click={() => selectCategory(leafPath)}

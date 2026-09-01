@@ -79,7 +79,7 @@
   <form on:submit|preventDefault={handleSubmit}>
     <div class="form-group">
       <label for="templateName">Template Name *</label>
-      <input 
+      <input
         id="templateName"
         type="text"
         bind:value={name}
@@ -91,7 +91,7 @@
     <div class="form-row">
       <div class="form-group">
         <label for="duration">Default Duration (min) *</label>
-        <input 
+        <input
           id="duration"
           type="number"
           bind:value={defaultDuration}
@@ -110,7 +110,7 @@
 
     <div class="form-group">
       <label>Category *</label>
-      <CategoryPicker 
+      <CategoryPicker
         categories={$categories}
         bind:value={categoryPath}
       />

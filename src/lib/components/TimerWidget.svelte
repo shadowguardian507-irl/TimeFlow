@@ -74,7 +74,7 @@
         bind:value={taskName}
         data-testid="timer-task-name"
       />
-      
+
       <input
         type="text"
         placeholder="Category (optional)"
@@ -84,18 +84,18 @@
 
       <div class="type-selector">
         <label>
-          <input 
-            type="radio" 
-            bind:group={taskType} 
+          <input
+            type="radio"
+            bind:group={taskType}
             value="direct"
             data-testid="timer-type-direct"
           />
           Direct
         </label>
         <label>
-          <input 
-            type="radio" 
-            bind:group={taskType} 
+          <input
+            type="radio"
+            bind:group={taskType}
             value="mergeable"
             data-testid="timer-type-mergeable"
           />
@@ -104,7 +104,7 @@
       </div>
 
       {#if taskType === 'mergeable'}
-        <select 
+        <select
           bind:value={distributionStrategy}
           data-testid="timer-distribution"
         >
@@ -119,14 +119,14 @@
 
   <div class="timer-actions">
     {#if isRunning}
-      <button 
+      <button
         class="stop-btn"
         on:click={handleStop}
         data-testid="timer-stop"
       >
         Stop & Save
       </button>
-      <button 
+      <button
         class="discard-btn"
         on:click={handleDiscard}
         data-testid="timer-discard"
@@ -134,7 +134,7 @@
         Discard
       </button>
     {:else}
-      <button 
+      <button
         class="start-btn"
         on:click={handleStart}
         data-testid="timer-start"

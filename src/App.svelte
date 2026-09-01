@@ -4,6 +4,7 @@
   import FirstRunDialog from './lib/components/FirstRunDialog.svelte';
   import { settingsStore } from './lib/stores/settings';
   import { timerStore } from './lib/stores/timer';
+  import { applyTheme } from './lib/theme';
 
   let showFirstRun = false;
   let loading = true;
@@ -11,16 +12,17 @@
   onMount(async () => {
     const isFirstRun = await settingsStore.checkFirstRun();
     showFirstRun = isFirstRun;
-    
-    await settingsStore.load();
+
+    const loadedSettings = await settingsStore.load();
+    applyTheme(loadedSettings.theme);
     await timerStore.load();
-    
+
     // Start polling if timer is running
     const timerState = await timerStore.load();
     if (timerState?.is_running) {
       timerStore.startPolling();
     }
-    
+
     loading = false;
   });
 

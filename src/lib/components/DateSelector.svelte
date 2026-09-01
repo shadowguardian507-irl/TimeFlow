@@ -36,7 +36,7 @@
 </script>
 
 <div class="date-selector" data-testid="date-selector">
-  <button 
+  <button
     class="nav-btn"
     on:click={() => changeDate(-1)}
     data-testid="date-selector-prev"
@@ -44,18 +44,18 @@
   >
     ←
   </button>
-  
+
   <div class="date-display">
-    <input 
-      type="date" 
+    <input
+      type="date"
       {value}
       on:change={handleInputChange}
       data-testid="date-selector-input"
     />
     <span class="date-text">{formatDisplayDate(value)}</span>
   </div>
-  
-  <button 
+
+  <button
     class="nav-btn"
     on:click={() => changeDate(1)}
     data-testid="date-selector-next"
@@ -63,9 +63,9 @@
   >
     →
   </button>
-  
+
   {#if !isToday}
-    <button 
+    <button
       class="today-btn"
       on:click={goToToday}
       data-testid="date-selector-today"

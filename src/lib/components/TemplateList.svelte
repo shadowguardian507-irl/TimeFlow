@@ -35,28 +35,28 @@
             {template.is_mergeable ? 'Mergeable' : 'Direct'}
           </span>
         </div>
-        
+
         <div class="template-meta">
           <span class="category">{template.category_path}</span>
           <span class="duration">{formatDuration(template.default_duration)}</span>
         </div>
 
         <div class="template-actions">
-          <button 
+          <button
             class="apply-btn"
             on:click={() => dispatch('apply', template)}
             title="Use this template"
           >
             Use
           </button>
-          <button 
+          <button
             class="edit-btn"
             on:click={() => dispatch('edit', template)}
             title="Edit template"
           >
             ✏️
           </button>
-          <button 
+          <button
             class="delete-btn"
             on:click={() => dispatch('delete', template)}
             title="Delete template"

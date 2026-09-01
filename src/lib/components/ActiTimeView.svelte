@@ -35,12 +35,12 @@
 
   async function copyToClipboard() {
     if (!view) return;
-    
-    const lines = view.entries.map(e => 
+
+    const lines = view.entries.map(e =>
       `${e.category_path}\t${e.duration_minutes}`
     );
     lines.push(`Total\t${view.total_minutes}`);
-    
+
     try {
       await navigator.clipboard.writeText(lines.join('\n'));
       copied = true;
@@ -96,7 +96,7 @@
     </div>
 
     <div class="actions">
-      <button 
+      <button
         class="copy-btn"
         on:click={copyToClipboard}
         data-testid="copy-actitime-btn"

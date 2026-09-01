@@ -30,7 +30,7 @@
       {task.task_type === 'direct' ? 'D' : 'M'}
     </span>
   </div>
-  
+
   <div class="task-meta">
     <span class="category" title={task.category_path}>
       {truncatePath(task.category_path)}
@@ -39,7 +39,7 @@
   </div>
 
   <div class="task-actions">
-    <button 
+    <button
       class="edit-btn"
       on:click={() => dispatch('edit')}
       data-testid="task-edit-btn"
@@ -47,7 +47,7 @@
     >
       ✏️
     </button>
-    <button 
+    <button
       class="delete-btn"
       on:click={() => dispatch('delete')}
       data-testid="task-delete-btn"

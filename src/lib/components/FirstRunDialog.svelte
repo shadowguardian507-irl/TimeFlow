@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, onMount } from 'svelte';
   import ThemeSelector from './ThemeSelector.svelte';
   import { settingsStore } from '../stores/settings';
   import * as api from '../api/commands';
@@ -11,6 +11,15 @@
   let selectedTheme: Theme = 'system';
   let importing = false;
   let importError = '';
+  let legacyDataAvailable = false;
+
+  onMount(async () => {
+    try {
+      legacyDataAvailable = await api.hasLegacyData();
+    } catch (e) {
+      console.error('Failed to check for legacy data:', e);
+    }
+  });
 
   async function nextStep() {
     if (step < 3) {
@@ -46,15 +55,30 @@
   async function handleImport() {
     const path = prompt('Enter backup file path:');
     if (!path) return;
-    
+
     importing = true;
     importError = '';
-    
+
     try {
       await api.importBackup(path);
       await completeSetup();
     } catch (e) {
       importError = 'Failed to import backup. Please check the file path.';
+    } finally {
+      importing = false;
+    }
+  }
+
+  async function handleLegacyImport() {
+    importing = true;
+    importError = '';
+
+    try {
+      await api.importLegacyData();
+      await settingsStore.load();
+      dispatch('complete');
+    } catch (e) {
+      importError = e instanceof Error ? e.message : 'Failed to import alpha data';
     } finally {
       importing = false;
     }
@@ -83,7 +107,7 @@
       <div class="step">
         <h2>Choose Your Theme</h2>
         <p>Select how you'd like TimeFlow to look.</p>
-        
+
         <div class="theme-section">
           <ThemeSelector />
         </div>
@@ -101,14 +125,25 @@
       <div class="step">
         <h2>Import Existing Data?</h2>
         <p>If you have a backup from a previous installation, you can import it now.</p>
-        
+
         {#if importError}
           <div class="error-message" role="alert">{importError}</div>
         {/if}
 
         <div class="import-section">
-          <button 
-            class="import-btn" 
+          {#if legacyDataAvailable}
+            <p class="legacy-notice">Data from an earlier alpha installation was found.</p>
+            <button
+              class="import-btn"
+              on:click={handleLegacyImport}
+              disabled={importing}
+            >
+              {importing ? 'Importing...' : 'Import Alpha Data'}
+            </button>
+          {/if}
+
+          <button
+            class="import-btn"
             on:click={handleImport}
             disabled={importing}
           >
