@@ -1,8 +1,8 @@
-# Requirements Document: TimeFlow 0.2.0 Maintenance Fixes
+# Requirements Document: TimeFlow 0.11.0 Maintenance Fixes
 
 ## Intent Analysis Summary
 
-- **User Request**: Document the fixes made in release 0.2.0 using lightweight AI-DLC documentation.
+- **User Request**: Document the fixes made in release 0.11.0 using lightweight AI-DLC documentation.
 - **Request Type**: Brownfield maintenance documentation.
 - **Scope Estimate**: Single desktop application, existing frontend and Tauri backend.
 - **Complexity Estimate**: Simple to moderate.
@@ -45,6 +45,7 @@
 - Form labels must be associated with controls, or replaced by labelled groups when labelling a component group.
 - Clickable static elements must not be used for modal backdrop interaction.
 - `TimerWidget` must not export unused component props.
+- The sidebar must display the actual app version from application metadata rather than a hard-coded fallback string.
 
 ### FR-06: Dependency and Audit Maintenance
 
@@ -52,6 +53,7 @@
 - JavaScript/TypeScript dependency advisories must be remediated where compatible updates are available.
 - Tauri JavaScript packages and Rust crates must stay on matching major/minor releases.
 - Makefile targets must allow Rust and JavaScript/TypeScript audits to run separately and together.
+- Makefile targets must verify and apply calculated release versions across app manifests.
 
 ## Non-Functional Requirements
 
@@ -68,4 +70,6 @@
 - JavaScript/TypeScript audit reports no known vulnerabilities at the configured audit level.
 - Date navigation works consistently in positive and negative UTC offsets.
 - Existing alpha data can be copied into the current app data namespace when no current data exists.
-- Svelte accessibility/compiler warnings reported during the 0.2.0 work are resolved.
+- Svelte accessibility/compiler warnings reported during the 0.11.0 work are resolved.
+- Sidebar version display follows the app version configured in Tauri metadata.
+- `make version-check` confirms `package.json`, `src-tauri/Cargo.toml`, `src-tauri/tauri.conf.json`, and `src-tauri/Cargo.lock` are in sync.

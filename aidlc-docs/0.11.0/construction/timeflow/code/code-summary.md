@@ -1,8 +1,8 @@
-# Code Summary: TimeFlow 0.2.0
+# Code Summary: TimeFlow 0.11.0
 
 ## Overview
 
-Release 0.2.0 modified the existing TimeFlow application in place. The changes
+Release 0.11.0 modified the existing TimeFlow application in place. The changes
 were maintenance-focused and did not introduce new architectural layers.
 
 ## Storage and Identifier Fixes
@@ -40,6 +40,7 @@ Primary areas:
 ## Build, Audit, and Dependency Fixes
 
 - Added Makefile targets for split Rust and JavaScript/TypeScript dependency audits.
+- Added Makefile targets for checking and applying release versions across app manifests.
 - Updated Rust dependency chain to remove the known `quick-xml` advisory path.
 - Updated JavaScript/Svelte/Vite tooling to remediate known advisories.
 - Pinned Tauri JavaScript packages and Rust crates to matching major/minor release lines.
@@ -51,6 +52,7 @@ Primary areas:
 - `pnpm-lock.yaml`
 - `src-tauri/Cargo.toml`
 - `src-tauri/Cargo.lock`
+- `scripts/sync-version.mjs`
 
 Final relevant dependency state:
 
@@ -73,9 +75,12 @@ Final relevant dependency state:
 - Replaced non-associated form labels with labelled groups where custom component groups are used.
 - Converted the clickable task-form overlay into an accessible backdrop button.
 - Added an accessible label to the category picker search input.
+- Changed the sidebar version display to use Tauri app metadata, with a build-time fallback read from `src-tauri/tauri.conf.json`.
 
 Primary areas:
 
+- `vite.config.ts`
+- `src/app-version.d.ts`
 - `src/main.ts`
 - `src/lib/components/DateSelector.svelte`
 - `src/lib/components/CategoryPicker.svelte`
@@ -84,10 +89,10 @@ Primary areas:
 - `src/lib/components/ThemeSelector.svelte`
 - `src/lib/components/TimeEntryView.svelte`
 - `src/lib/components/TimerWidget.svelte`
+- `src/lib/components/Sidebar.svelte`
 
 ## Behaviour Preserved
 
 - Existing task, category, template, timer, and export flows remain within the 0.1.0 application model.
 - TimeFlow remains a local desktop application with YAML-backed data.
 - No cloud synchronisation, remote service integration, or multi-user behaviour was added.
-

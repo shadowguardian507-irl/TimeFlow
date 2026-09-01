@@ -127,3 +127,30 @@ category search, and removed the unused TimerWidget date prop and parent binding
 **Context**: `pnpm run build` completes successfully without the reported Svelte warnings.
 
 ---
+
+## DEVELOPMENT - Sidebar Version Metadata
+
+**Timestamp**: 2026-09-01T13:43:20Z
+**User Input**: "please can you make it so that the version shown in the side bar tracks the actual app version rather
+than being hard coded ?"
+**AI Response**: Removed the hard-coded sidebar fallback version and added a
+build-time app version constant sourced from `src-tauri/tauri.conf.json`.
+The sidebar still uses Tauri's runtime `getVersion()` API first, then falls back
+to the metadata-derived value when running outside the Tauri API context.
+**Context**: `pnpm run build` passes and no sidebar version literal remains.
+
+---
+
+## DEVELOPMENT - Version Synchronisation Make Targets
+
+**Timestamp**: 2026-09-01T13:56:25Z
+**User Input**: "ok, please do add that to the make file"
+**AI Response**: Added `make version-check` and `make version-set VERSION=x.y.z`
+targets backed by `scripts/sync-version.mjs`. The helper checks or applies the
+same app version across `package.json`, `src-tauri/Cargo.toml`,
+`src-tauri/tauri.conf.json`, and the root `timeflow` entry in `src-tauri/Cargo.lock`.
+**Context**: Applied `VERSION=0.10.3` to remove existing drift. `make version-check`,
+`pnpm exec tsc --noEmit`, `pnpm run build`, `cargo check --manifest-path
+src-tauri/Cargo.toml --locked --offline`, and `git diff --check` pass.
+
+---

@@ -1,4 +1,4 @@
-# Execution Plan: TimeFlow 0.2.0
+# Execution Plan: TimeFlow 0.11.0
 
 ## Workflow Mode
 
@@ -38,6 +38,8 @@ maintenance fixes rather than new user-facing product capabilities.
 | Date selector navigation        | Use UTC arithmetic for previous/next day changes.                                                 | Behavioural validation and frontend build.                                                |
 | Svelte 5 bootstrap              | Replace removed Svelte 4 bootstrap API with Svelte 5 `mount`.                                     | App root mounts and frontend build passes.                                                |
 | Svelte warnings                 | Resolve reported accessibility and unused export warnings.                                        | `pnpm run build` passes without the reported warnings.                                    |
+| Sidebar version display         | Use Tauri runtime metadata with a build-time app metadata fallback.                               | `pnpm run build` passes and no sidebar version literal remains.                           |
+| Version sync tooling            | Add Makefile targets to check and apply calculated release versions across app manifests.         | `make version-set VERSION=0.10.3` and `make version-check` pass.                          |
 
 ## Risk Assessment
 
