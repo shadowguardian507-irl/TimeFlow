@@ -47,7 +47,10 @@ pub async fn update_template(
 }
 
 #[tauri::command]
-pub async fn delete_template(state: State<'_, AppState>, template_id: String) -> Result<(), String> {
+pub async fn delete_template(
+    state: State<'_, AppState>,
+    template_id: String,
+) -> Result<(), String> {
     let template_manager = state.template_manager.lock().unwrap();
 
     let uuid = Uuid::parse_str(&template_id).map_err(|e| format!("Invalid template ID: {}", e))?;

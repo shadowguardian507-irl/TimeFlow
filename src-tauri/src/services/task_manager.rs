@@ -39,7 +39,7 @@ impl TaskManager {
         }
 
         let task_date = date.unwrap_or_else(|| Local::now().date_naive());
-        
+
         let task = Task::new(
             name,
             task_date,
@@ -66,7 +66,7 @@ impl TaskManager {
         settings: &Settings,
     ) -> Result<Task> {
         let mut tasks = self.storage.load_tasks(date)?;
-        
+
         let task = tasks
             .iter_mut()
             .find(|t| t.id == task_id)
@@ -117,7 +117,7 @@ impl TaskManager {
     /// Delete a task
     pub fn delete_task(&self, task_id: Uuid, date: NaiveDate) -> Result<()> {
         let mut tasks = self.storage.load_tasks(date)?;
-        
+
         let initial_len = tasks.len();
         tasks.retain(|t| t.id != task_id);
 
@@ -140,7 +140,11 @@ impl TaskManager {
     }
 
     /// Validate daily time totals
-    pub fn validate_daily_time(&self, date: NaiveDate, settings: &Settings) -> Result<DailyValidation> {
+    pub fn validate_daily_time(
+        &self,
+        date: NaiveDate,
+        settings: &Settings,
+    ) -> Result<DailyValidation> {
         let tasks = self.storage.load_tasks(date)?;
         let total_minutes: u32 = tasks.iter().map(|t| t.duration_minutes).sum();
         let total_hours = total_minutes as f32 / 60.0;

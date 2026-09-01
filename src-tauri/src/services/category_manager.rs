@@ -25,7 +25,7 @@ impl CategoryManager {
     /// Add a new category at the specified path
     pub fn add_category(&self, path: &str) -> Result<Category> {
         let mut tree = self.storage.load_categories()?;
-        
+
         if !tree.add_at_path(path) {
             return Err(TimeFlowError::InvalidCategoryPath(path.to_string()));
         }
@@ -37,7 +37,7 @@ impl CategoryManager {
     /// Hide a category (and its children)
     pub fn hide_category(&self, path: &str) -> Result<()> {
         let mut tree = self.storage.load_categories()?;
-        
+
         let category = tree
             .find_by_path_mut(path)
             .ok_or_else(|| TimeFlowError::CategoryNotFound(path.to_string()))?;
@@ -57,7 +57,7 @@ impl CategoryManager {
     /// Unhide a category
     pub fn unhide_category(&self, path: &str) -> Result<()> {
         let mut tree = self.storage.load_categories()?;
-        
+
         let category = tree
             .find_by_path_mut(path)
             .ok_or_else(|| TimeFlowError::CategoryNotFound(path.to_string()))?;
@@ -70,7 +70,7 @@ impl CategoryManager {
     /// Validate that a category path exists and is not hidden
     pub fn validate_category_path(&self, path: &str) -> Result<bool> {
         let tree = self.storage.load_categories()?;
-        
+
         match tree.find_by_path(path) {
             Some((category, _)) => {
                 if category.hidden {

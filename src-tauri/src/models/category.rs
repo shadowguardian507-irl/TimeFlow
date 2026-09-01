@@ -41,7 +41,7 @@ impl Category {
         ancestors: Vec<String>,
     ) -> Option<(&Category, Vec<String>)> {
         let current_path = self.get_path(&ancestors);
-        
+
         if current_path == path {
             return Some((self, ancestors));
         }
@@ -72,7 +72,7 @@ impl Category {
         ancestors: Vec<String>,
     ) -> Option<&mut Category> {
         let current_path = self.get_path(&ancestors);
-        
+
         if current_path == path {
             return Some(self);
         }
@@ -98,7 +98,7 @@ impl Category {
 
     fn get_visible_paths_recursive(&self, ancestors: Vec<String>) -> Vec<String> {
         let mut paths = Vec::new();
-        
+
         if !self.hidden && !self.name.is_empty() {
             paths.push(self.get_path(&ancestors));
         }
@@ -127,14 +127,12 @@ impl Category {
         }
 
         let part = parts[index];
-        
+
         // Find or create child
         let child_index = self.children.iter().position(|c| c.name == part);
-        
+
         match child_index {
-            Some(idx) => {
-                self.children[idx].add_at_path_recursive(parts, index + 1)
-            }
+            Some(idx) => self.children[idx].add_at_path_recursive(parts, index + 1),
             None => {
                 let mut new_child = Category::new(part.to_string());
                 new_child.add_at_path_recursive(parts, index + 1);

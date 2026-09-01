@@ -68,12 +68,10 @@ impl TimeMergeService {
                 DistributionStrategy::Even => {
                     Self::even_distribute(mergeable.duration_minutes, direct_tasks)
                 }
-                DistributionStrategy::Manual => {
-                    Self::manual_distribute(
-                        mergeable.duration_minutes,
-                        &mergeable.manual_allocations,
-                    )?
-                }
+                DistributionStrategy::Manual => Self::manual_distribute(
+                    mergeable.duration_minutes,
+                    &mergeable.manual_allocations,
+                )?,
                 DistributionStrategy::Weighted => {
                     Self::weighted_distribute(mergeable.duration_minutes, &mergeable.weights)?
                 }

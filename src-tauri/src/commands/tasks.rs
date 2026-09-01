@@ -97,10 +97,10 @@ pub async fn get_tasks_for_range(
 ) -> Result<Vec<Task>, String> {
     let task_manager = state.task_manager.lock().unwrap();
 
-    let start_date =
-        NaiveDate::parse_from_str(&start, "%Y-%m-%d").map_err(|e| format!("Invalid start date: {}", e))?;
-    let end_date =
-        NaiveDate::parse_from_str(&end, "%Y-%m-%d").map_err(|e| format!("Invalid end date: {}", e))?;
+    let start_date = NaiveDate::parse_from_str(&start, "%Y-%m-%d")
+        .map_err(|e| format!("Invalid start date: {}", e))?;
+    let end_date = NaiveDate::parse_from_str(&end, "%Y-%m-%d")
+        .map_err(|e| format!("Invalid end date: {}", e))?;
 
     task_manager
         .get_tasks_for_range(start_date, end_date)

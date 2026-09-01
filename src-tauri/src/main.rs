@@ -44,6 +44,8 @@ fn main() {
             commands::get_settings,
             commands::update_settings,
             commands::is_first_run,
+            commands::has_legacy_data,
+            commands::import_legacy_data,
             commands::complete_first_run,
             // Export commands
             commands::export_backup,

@@ -13,7 +13,7 @@ impl TimerService {
     pub fn new(storage: StorageService) -> Result<Self> {
         // Try to recover timer state from storage
         let state = storage.load_timer_state()?;
-        
+
         Ok(Self {
             state: Mutex::new(state),
             storage,
@@ -34,11 +34,12 @@ impl TimerService {
             return Err(TimeFlowError::TimerAlreadyRunning);
         }
 
-        let timer_state = TimerState::new(task_name, category_path, task_type, distribution_strategy);
-        
+        let timer_state =
+            TimerState::new(task_name, category_path, task_type, distribution_strategy);
+
         // Persist for crash recovery
         self.storage.save_timer_state(&timer_state)?;
-        
+
         let info = TimerInfo::from(&timer_state);
         *state_guard = Some(timer_state);
 
@@ -49,9 +50,7 @@ impl TimerService {
     pub fn stop(&self) -> Result<(TimerState, u32)> {
         let mut state_guard = self.state.lock().unwrap();
 
-        let state = state_guard
-            .take()
-            .ok_or(TimeFlowError::NoTimerRunning)?;
+        let state = state_guard.take().ok_or(TimeFlowError::NoTimerRunning)?;
 
         let elapsed_minutes = state.elapsed_minutes().max(1); // Minimum 1 minute
 

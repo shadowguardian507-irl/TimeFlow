@@ -6,8 +6,8 @@ pub mod services;
 use std::sync::Mutex;
 
 use services::{
-    CategoryManager, ExportManager, SettingsManager, StorageService, TaskManager,
-    TemplateManager, TimerService, ViewGenerator,
+    CategoryManager, ExportManager, SettingsManager, StorageService, TaskManager, TemplateManager,
+    TimerService, ViewGenerator,
 };
 
 pub struct AppState {
@@ -23,7 +23,7 @@ pub struct AppState {
 impl AppState {
     pub fn new() -> Result<Self, error::TimeFlowError> {
         let storage = StorageService::new()?;
-        
+
         Ok(Self {
             task_manager: Mutex::new(TaskManager::new(StorageService::new()?)),
             category_manager: Mutex::new(CategoryManager::new(StorageService::new()?)),

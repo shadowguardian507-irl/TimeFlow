@@ -72,7 +72,7 @@ impl ViewGenerator {
     /// Generate ActiTime-tuned view with merged times
     pub fn get_actitime_view(&self, date: NaiveDate) -> Result<ActiTimeView> {
         let tasks = self.storage.load_tasks(date)?;
-        
+
         let direct_tasks: Vec<_> = tasks.iter().filter(|t| t.is_direct()).cloned().collect();
         let mergeable_tasks: Vec<_> = tasks.iter().filter(|t| t.is_mergeable()).cloned().collect();
 
@@ -82,7 +82,8 @@ impl ViewGenerator {
         }
 
         // Calculate merged entries
-        let merged_entries = TimeMergeService::calculate_distribution(&mergeable_tasks, &direct_tasks)?;
+        let merged_entries =
+            TimeMergeService::calculate_distribution(&mergeable_tasks, &direct_tasks)?;
 
         // Aggregate by category
         let entries = Self::aggregate_by_category(merged_entries);
@@ -129,7 +130,7 @@ impl ViewGenerator {
         for _ in 0..7 {
             let tasks = self.storage.load_tasks(current)?;
             let day_total: u32 = tasks.iter().map(|t| t.duration_minutes).sum();
-            
+
             days.push(DaySummary {
                 date: current,
                 total_minutes: day_total,

@@ -43,6 +43,20 @@ impl SettingsManager {
         Ok(!settings.first_run_complete)
     }
 
+    /// Check whether data from the pre-release storage namespace is available.
+    pub fn has_legacy_data(&self) -> Result<bool> {
+        self.storage.has_legacy_data()
+    }
+
+    /// Import data from the pre-release storage namespace.
+    pub fn import_legacy_data(&self) -> Result<()> {
+        self.storage.import_legacy_data()?;
+
+        let mut settings = self.storage.load_settings()?;
+        settings.first_run_complete = true;
+        self.storage.save_settings(&settings)
+    }
+
     /// Complete first run setup
     pub fn complete_first_run(&self, initial_settings: Settings) -> Result<Settings> {
         let mut settings = initial_settings;

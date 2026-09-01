@@ -47,8 +47,8 @@ impl ExportManager {
 
     /// Import data from a backup file
     pub fn import_backup(&self, path: PathBuf) -> Result<ImportResult> {
-        let content = fs::read_to_string(&path)
-            .map_err(|e| TimeFlowError::ImportError(e.to_string()))?;
+        let content =
+            fs::read_to_string(&path).map_err(|e| TimeFlowError::ImportError(e.to_string()))?;
 
         let backup: BackupData = serde_yaml::from_str(&content)
             .map_err(|e| TimeFlowError::ImportError(e.to_string()))?;
@@ -78,7 +78,11 @@ impl ExportManager {
         let mut csv_content = String::from("Date,Task Name,Category,Duration (minutes),Type\n");
 
         for task in tasks {
-            let task_type = if task.is_direct() { "Direct" } else { "Mergeable" };
+            let task_type = if task.is_direct() {
+                "Direct"
+            } else {
+                "Mergeable"
+            };
             csv_content.push_str(&format!(
                 "{},{},{},{},{}\n",
                 task.date,
@@ -103,11 +107,7 @@ impl ExportManager {
     }
 
     /// Get tasks for CSV export preview
-    pub fn get_export_preview(
-        &self,
-        start: NaiveDate,
-        end: NaiveDate,
-    ) -> Result<Vec<Task>> {
+    pub fn get_export_preview(&self, start: NaiveDate, end: NaiveDate) -> Result<Vec<Task>> {
         self.storage.load_tasks_range(start, end)
     }
 }

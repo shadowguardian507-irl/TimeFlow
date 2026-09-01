@@ -35,8 +35,8 @@ pub async fn export_csv(
 
     let start_date = NaiveDate::parse_from_str(&start, "%Y-%m-%d")
         .map_err(|e| format!("Invalid start date: {}", e))?;
-    let end_date =
-        NaiveDate::parse_from_str(&end, "%Y-%m-%d").map_err(|e| format!("Invalid end date: {}", e))?;
+    let end_date = NaiveDate::parse_from_str(&end, "%Y-%m-%d")
+        .map_err(|e| format!("Invalid end date: {}", e))?;
 
     export_manager
         .export_csv(start_date, end_date, PathBuf::from(path))

@@ -1,7 +1,7 @@
 use chrono::NaiveDate;
 use directories::ProjectDirs;
 use std::fs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use crate::error::{Result, TimeFlowError};
 use crate::models::{Category, DayTasks, Settings, Task, TemplateList, TimerState};
@@ -12,16 +12,48 @@ pub struct StorageService {
 
 impl StorageService {
     pub fn new() -> Result<Self> {
-        let project_dirs = ProjectDirs::from("com", "timeflow", "TimeFlow")
-            .ok_or_else(|| TimeFlowError::StorageError("Could not determine data directory".into()))?;
-        
-        let data_dir = project_dirs.data_dir().to_path_buf();
-        
+        let data_dir = data_dir_for("uk", "etheria-software", "TimeFlow")?;
+
         // Create directories if they don't exist
         fs::create_dir_all(&data_dir)?;
         fs::create_dir_all(data_dir.join("tasks"))?;
-        
+
         Ok(Self { data_dir })
+    }
+
+    /// Returns whether data from the pre-release storage namespace can be imported.
+    pub fn has_legacy_data(&self) -> Result<bool> {
+        let legacy_dir = legacy_data_dir()?;
+
+        Ok(legacy_dir != self.data_dir
+            && has_user_data(&legacy_dir)
+            && !has_user_data(&self.data_dir))
+    }
+
+    /// Copy data from the pre-release storage namespace into the current namespace.
+    pub fn import_legacy_data(&self) -> Result<()> {
+        let legacy_dir = legacy_data_dir()?;
+
+        if legacy_dir == self.data_dir {
+            return Err(TimeFlowError::ImportError(
+                "Legacy and current data directories are the same".into(),
+            ));
+        }
+
+        if !has_user_data(&legacy_dir) {
+            return Err(TimeFlowError::ImportError(
+                "No legacy TimeFlow data was found".into(),
+            ));
+        }
+
+        if has_user_data(&self.data_dir) {
+            return Err(TimeFlowError::ImportError(
+                "Current TimeFlow data already exists".into(),
+            ));
+        }
+
+        copy_directory_contents(&legacy_dir, &self.data_dir)?;
+        Ok(())
     }
 
     /// Get the path for a specific date's tasks file
@@ -63,7 +95,7 @@ impl StorageService {
 
     pub fn load_tasks(&self, date: NaiveDate) -> Result<Vec<Task>> {
         let path = self.tasks_path(date);
-        
+
         if !path.exists() {
             return Ok(Vec::new());
         }
@@ -83,13 +115,13 @@ impl StorageService {
     pub fn load_tasks_range(&self, start: NaiveDate, end: NaiveDate) -> Result<Vec<Task>> {
         let mut all_tasks = Vec::new();
         let mut current = start;
-        
+
         while current <= end {
             let tasks = self.load_tasks(current)?;
             all_tasks.extend(tasks);
             current = current.succ_opt().unwrap_or(current);
         }
-        
+
         Ok(all_tasks)
     }
 
@@ -97,7 +129,7 @@ impl StorageService {
 
     pub fn load_categories(&self) -> Result<Category> {
         let path = self.categories_path();
-        
+
         if !path.exists() {
             return Ok(crate::models::category::create_root());
         }
@@ -117,7 +149,7 @@ impl StorageService {
 
     pub fn load_templates(&self) -> Result<Vec<crate::models::Template>> {
         let path = self.templates_path();
-        
+
         if !path.exists() {
             return Ok(Vec::new());
         }
@@ -140,7 +172,7 @@ impl StorageService {
 
     pub fn load_settings(&self) -> Result<Settings> {
         let path = self.settings_path();
-        
+
         if !path.exists() {
             return Ok(Settings::default());
         }
@@ -160,7 +192,7 @@ impl StorageService {
 
     pub fn load_timer_state(&self) -> Result<Option<TimerState>> {
         let path = self.timer_state_path();
-        
+
         if !path.exists() {
             return Ok(None);
         }
@@ -209,8 +241,96 @@ impl StorageService {
     }
 }
 
+fn data_dir_for(qualifier: &str, organization: &str, application: &str) -> Result<PathBuf> {
+    ProjectDirs::from(qualifier, organization, application)
+        .map(|project_dirs| project_dirs.data_dir().to_path_buf())
+        .ok_or_else(|| TimeFlowError::StorageError("Could not determine data directory".into()))
+}
+
+fn legacy_data_dir() -> Result<PathBuf> {
+    data_dir_for("com", "timeflow", "TimeFlow")
+}
+
+fn has_user_data(data_dir: &Path) -> bool {
+    [
+        "categories.yaml",
+        "templates.yaml",
+        "settings.yaml",
+        "timer_state.yaml",
+    ]
+    .iter()
+    .any(|file| data_dir.join(file).is_file())
+        || contains_files(&data_dir.join("tasks"))
+}
+
+fn contains_files(directory: &Path) -> bool {
+    let Ok(entries) = fs::read_dir(directory) else {
+        return false;
+    };
+
+    entries.flatten().any(|entry| {
+        let path = entry.path();
+        match entry.file_type() {
+            Ok(file_type) if file_type.is_file() => true,
+            Ok(file_type) if file_type.is_dir() => contains_files(&path),
+            _ => false,
+        }
+    })
+}
+
+fn copy_directory_contents(source: &Path, destination: &Path) -> Result<()> {
+    fs::create_dir_all(destination)?;
+
+    for entry in fs::read_dir(source)? {
+        let entry = entry?;
+        let source_path = entry.path();
+        let destination_path = destination.join(entry.file_name());
+        let file_type = entry.file_type()?;
+
+        if file_type.is_dir() {
+            copy_directory_contents(&source_path, &destination_path)?;
+        } else if file_type.is_file() {
+            fs::copy(&source_path, &destination_path)?;
+        }
+    }
+
+    Ok(())
+}
+
 impl Default for StorageService {
     fn default() -> Self {
         Self::new().expect("Failed to initialize storage service")
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{contains_files, copy_directory_contents};
+    use std::fs;
+
+    #[test]
+    fn copies_nested_legacy_data_without_changing_file_contents() {
+        let root =
+            std::env::temp_dir().join(format!("timeflow-storage-test-{}", uuid::Uuid::new_v4()));
+        let source = root.join("legacy");
+        let destination = root.join("current");
+
+        fs::create_dir_all(source.join("tasks")).unwrap();
+        fs::write(source.join("settings.yaml"), "first_run_complete: true\n").unwrap();
+        fs::write(source.join("tasks/2026-08-31.yaml"), "tasks: []\n").unwrap();
+
+        copy_directory_contents(&source, &destination).unwrap();
+
+        assert!(contains_files(&destination));
+        assert_eq!(
+            fs::read_to_string(destination.join("settings.yaml")).unwrap(),
+            "first_run_complete: true\n"
+        );
+        assert_eq!(
+            fs::read_to_string(destination.join("tasks/2026-08-31.yaml")).unwrap(),
+            "tasks: []\n"
+        );
+
+        fs::remove_dir_all(root).unwrap();
     }
 }

@@ -27,6 +27,22 @@ pub async fn is_first_run(state: State<'_, AppState>) -> Result<bool, String> {
 }
 
 #[tauri::command]
+pub async fn has_legacy_data(state: State<'_, AppState>) -> Result<bool, String> {
+    let settings_manager = state.settings_manager.lock().unwrap();
+    settings_manager
+        .has_legacy_data()
+        .map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+pub async fn import_legacy_data(state: State<'_, AppState>) -> Result<(), String> {
+    let settings_manager = state.settings_manager.lock().unwrap();
+    settings_manager
+        .import_legacy_data()
+        .map_err(|e| e.to_string())
+}
+
+#[tauri::command]
 pub async fn complete_first_run(
     state: State<'_, AppState>,
     initial_settings: Settings,
