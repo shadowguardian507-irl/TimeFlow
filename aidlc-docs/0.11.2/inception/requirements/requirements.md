@@ -1,8 +1,8 @@
-# Requirements Document: TimeFlow 0.11.0 Maintenance Fixes
+# Requirements Document: TimeFlow 0.11.2 Maintenance Fixes
 
 ## Intent Analysis Summary
 
-- **User Request**: Document the fixes made in release 0.11.0 using lightweight AI-DLC documentation.
+- **User Request**: Document the fixes made in release 0.11.2 using lightweight AI-DLC documentation.
 - **Request Type**: Brownfield maintenance documentation.
 - **Scope Estimate**: Single desktop application, existing frontend and Tauri backend.
 - **Complexity Estimate**: Simple to moderate.
@@ -58,7 +58,8 @@
 ## Non-Functional Requirements
 
 - Build output should be free of the Svelte warnings addressed in this release.
-- Default Linux release packaging should avoid known AppImage tooling failures on rolling-release Arch hosts.
+- Linux release packaging should avoid known AppImage tooling failures on rolling-release Arch hosts without changing
+  macOS and Windows bundle targets.
 - Dependency versions should be pinned tightly enough to prevent avoidable Tauri minor-version drift.
 - Security audit commands should be discoverable through `make help`.
 - Changes should remain local to the existing app architecture.
@@ -71,8 +72,9 @@
 - JavaScript/TypeScript audit reports no known vulnerabilities at the configured audit level.
 - Date navigation works consistently in positive and negative UTC offsets.
 - Existing alpha data can be copied into the current app data namespace when no current data exists.
-- Svelte accessibility/compiler warnings reported during the 0.11.0 work are resolved.
+- Svelte accessibility/compiler warnings reported during the 0.11.2 work are resolved.
 - Sidebar version display follows the app version configured in Tauri metadata.
 - `make version-check` confirms `package.json`, `src-tauri/Cargo.toml`,
   `src-tauri/tauri.conf.json`, and `src-tauri/Cargo.lock` are in sync.
-- `pnpm tauri build` completes successfully and emits versioned `.deb` and `.rpm` packages.
+- On Linux, `pnpm tauri build` completes successfully and emits versioned `.deb` and `.rpm` packages.
+- The shared Tauri bundle target configuration must still allow macOS builds to emit `.dmg` packages.

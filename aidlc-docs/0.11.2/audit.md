@@ -169,3 +169,18 @@ the default Tauri bundle targets to `deb` and `rpm`.
 `make version-check` and `git diff --check` pass.
 
 ---
+
+## DEVELOPMENT - Platform-Specific Bundle Targets
+
+**Timestamp**: 2026-09-01T18:39:11Z
+**User Input**: "ok so when I did the mac build just now it did not produce a dmg"
+**AI Response**: Restored the shared Tauri bundle target configuration to `all`
+and moved the Linux AppImage exclusion into `src-tauri/tauri.linux.conf.json`,
+where Linux builds bundle only `deb` and `rpm`.
+**Context**: The earlier global `deb`/`rpm` target setting fixed Linux builds
+but also prevented macOS builds from producing a `.dmg`. On Linux,
+`pnpm tauri build` now passes using the platform-specific override and emits
+`TimeFlow_0.11.1_amd64.deb` and `TimeFlow-0.11.1-1.x86_64.rpm`.
+macOS DMG generation could not be verified from the Linux environment.
+
+---

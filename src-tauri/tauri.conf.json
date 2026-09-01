@@ -31,12 +31,9 @@
       "icons/128x128@2x.png",
       "icons/icon.png"
     ],
-    "targets": [
-      "deb",
-      "rpm"
-    ]
+    "targets": "all"
   },
   "identifier": "uk.etheria-software.timeflow",
   "productName": "TimeFlow",
-  "version": "0.11.1"
+  "version": "0.11.2"
 }

@@ -1,4 +1,4 @@
-# Execution Plan: TimeFlow 0.11.0
+# Execution Plan: TimeFlow 0.11.2
 
 ## Workflow Mode
 
@@ -40,7 +40,7 @@ maintenance fixes rather than new user-facing product capabilities.
 | Svelte warnings                 | Resolve reported accessibility and unused export warnings.                                        | `pnpm run build` passes without the reported warnings.                                    |
 | Sidebar version display         | Use Tauri runtime metadata with a build-time app metadata fallback.                               | `pnpm run build` passes and no sidebar version literal remains.                           |
 | Version sync tooling            | Add Makefile targets to check and apply calculated release versions across app manifests.         | `make version-set VERSION=0.10.3` and `make version-check` pass.                          |
-| Linux packaging defaults        | Exclude AppImage from the default Tauri bundle targets on Arch due to linuxdeploy strip failures. | `pnpm tauri build` passes and emits `.deb` and `.rpm` packages for `0.11.0`.              |
+| Platform packaging targets      | Keep shared bundle targets cross-platform and exclude AppImage only in Linux-specific Tauri config. | Linux `pnpm tauri build` passes and emits `.deb` and `.rpm` packages for `0.11.1`; macOS DMG generation remains enabled by shared config. |
 
 ## Risk Assessment
 
@@ -48,4 +48,5 @@ maintenance fixes rather than new user-facing product capabilities.
 - **Highest Risk Area**: Legacy data migration, because it touches user data locations.
 - **Mitigation**: Import only when legacy data exists and current data does not already exist;
   keep copy behaviour covered by a focused nested-data test.
-- **Residual Risk**: Manual verification is still useful for first-run migration and theme startup on each supported OS.
+- **Residual Risk**: Manual verification is still useful for first-run migration, theme startup, and macOS DMG packaging
+  on each supported OS.

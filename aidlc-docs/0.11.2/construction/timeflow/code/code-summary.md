@@ -1,8 +1,8 @@
-# Code Summary: TimeFlow 0.11.0
+# Code Summary: TimeFlow 0.11.2
 
 ## Overview
 
-Release 0.11.0 modified the existing TimeFlow application in place. The changes
+Release 0.11.2 modified the existing TimeFlow application in place. The changes
 were maintenance-focused and did not introduce new architectural layers.
 
 ## Storage and Identifier Fixes
@@ -44,8 +44,10 @@ Primary areas:
 - Updated Rust dependency chain to remove the known `quick-xml` advisory path.
 - Updated JavaScript/Svelte/Vite tooling to remediate known advisories.
 - Pinned Tauri JavaScript packages and Rust crates to matching major/minor release lines.
-- Limited default Tauri Linux bundle targets to `deb` and `rpm` so standard
-  builds do not fail in AppImage linuxdeploy on Arch.
+- Kept shared Tauri bundle targets at `all` and added a Linux-specific Tauri
+  config that limits Linux packaging to `deb` and `rpm`, so standard Linux
+  builds do not fail in AppImage linuxdeploy on Arch while macOS can still
+  produce `.dmg` bundles.
 
 Primary areas:
 
@@ -55,6 +57,7 @@ Primary areas:
 - `src-tauri/Cargo.toml`
 - `src-tauri/Cargo.lock`
 - `src-tauri/tauri.conf.json`
+- `src-tauri/tauri.linux.conf.json`
 - `scripts/sync-version.mjs`
 
 Final relevant dependency state:
