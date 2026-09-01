@@ -25,6 +25,8 @@ A desktop time tracking application built with Rust + Tauri for macOS, designed 
 
    ```bash
    pnpm install
+   pnpm approve-builds # if needed
+   # approve esbuild@0.21.5
    ```
 
 2. Run in development mode:
@@ -90,12 +92,16 @@ timeflow/
 
 ## Data Storage
 
-TimeFlow stores data in YAML files in the user's data directory:
+TimeFlow stores data in YAML files in the operating system's application data directory. The current storage namespace is `uk.etheria-software/TimeFlow`.
 
-- `~/.timeflow/tasks/YYYY-MM-DD.yaml` - Daily task files
-- `~/.timeflow/categories.yaml` - Category hierarchy
-- `~/.timeflow/templates.yaml` - Task templates
-- `~/.timeflow/settings.yaml` - User preferences
+When upgrading from an earlier alpha build, TimeFlow checks the legacy `com/timeflow/TimeFlow` namespace and offers to copy the existing data into the current namespace.
+
+The data includes:
+
+- `tasks/YYYY-MM-DD.yaml` - Daily task files
+- `categories.yaml` - Category hierarchy
+- `templates.yaml` - Task templates
+- `settings.yaml` - User preferences
 
 ## Usage
 
